@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>指数发布</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../../public/css/font.css"/>
+    <link rel="stylesheet" href="../../public/layui/css/layui.css">
+</head>
+<body>
+
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-form layui-card-header" style="padding-top: 10px;padding-bottom: 10px;">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">品种</label>
+                    <div class="layui-input-inline">
+                        <select name="label">
+                            <option value="">请选择</option>
+                            <option value="0">东魁杨梅</option>
+                            <option value="1">荸荠杨梅</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">发布时间</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input" id="test6" placeholder=" - ">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn layuiadmin-btn-list" lay-submit lay-filter="LAY-app-contlist-search">
+                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"> 查 询</i>
+                    </button>
+                    <button class="layui-btn layui-btn-normal" data-type="fb">
+                        <i class="layui-icon layui-icon-upload-circle"> 发 布</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-card-body">
+            <table class="layui-hide" id="dataTable" lay-filter="dataTable"></table>
+        </div>
+    </div>
+</div>
+
+<script src="../../public/layui/layui.js"></script>
+<script>
+    layui.extend({
+        admin: '{/}../../public/js/admin'
+    });
+    layui.use(['table', 'jquery', 'form', 'admin', 'laydate'], function (table, $, form, admin, laydate) {
+        laydate.render({
+            elem: '#test6'
+            ,range: true
+        });
+
+        //监听搜索
+        form.on('submit(LAY-app-contlist-search)', function(data){
+            //执行重载
+            table.reload('dataTable', {
+                where: data.field
+            });
+        });
+
+        table.render({
+            elem: '#dataTable'
+            ,page: true
+            ,cols: [[
+                {field:'pz', title:'品种'}
+                ,{field:'ysjj', title:'预售均价'}
+                ,{field:'cjjj', title:'成交均价'}
+                ,{field:'jyjg', title:'交易价格'}
+                ,{field:'sj', title:'发布时间'}
+            ]]
+            , data: [
+                {
+                    "pz": "东魁杨梅",
+                    "ysjj": "25.06",
+                    "cjjj": "25.26",
+                    "jyjg": "25.72",
+                    "sj": "2021-03-06"
+                },
+                {
+                    "pz": "东魁杨梅",
+                    "ysjj": "25.06",
+                    "cjjj": "25.26",
+                    "jyjg": "25.72",
+                    "sj": "2021-03-06"
+                },
+                {
+                    "pz": "东魁杨梅",
+                    "ysjj": "25.06",
+                    "cjjj": "25.26",
+                    "jyjg": "25.72",
+                    "sj": "2021-03-06"
+                },
+                {
+                    "pz": "东魁杨梅",
+                    "ysjj": "25.06",
+                    "cjjj": "25.26",
+                    "jyjg": "25.72",
+                    "sj": "2021-03-06"
+                },
+                {
+                    "pz": "东魁杨梅",
+                    "ysjj": "25.06",
+                    "cjjj": "25.26",
+                    "jyjg": "25.72",
+                    "sj": "2021-03-06"
+                }]
+        });
+
+        var active = {
+            fb: function () {
+                $("input[name='ysjj']").val('');
+                $("input[name='cjjj']").val('');
+                $("input[name='jyjg']").val('');
+                layer.open({
+                    type: 1
+                    ,title: '指数发布'
+                    ,content: $('#fbDiv')
+                    ,area: ['500px', '500px']
+                    ,btn: ['发布', '取消']
+                    ,yes: function(index, layero){
+                        layer.msg('发布成功');
+                        layer.close(index);
+                    }
+                });
+            }
+        };
+
+        $('.layui-btn').on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+
+    });
+</script>
+</body>
+
+<div class="layui-form" lay-filter="layuiadmin-app-form-list" id="fbDiv"
+     style="padding: 20px 30px 0 0; display: none;">
+    <div class="layui-form-item">
+        <label class="layui-form-label">杨梅品种</label>
+        <div class="layui-input-inline">
+            <select name="label">
+                <option value="东魁杨梅">东魁杨梅</option>
+                <option value="荸荠杨梅">荸荠杨梅</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">预售均价</label>
+        <div class="layui-input-inline">
+            <input type="text" name="ysjj" lay-verify="required" placeholder="请输入预售均价" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">成交均价</label>
+        <div class="layui-input-inline">
+            <input type="text" name="cjjj" lay-verify="required" placeholder="请输入成交均价" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">交易价格</label>
+        <div class="layui-input-inline">
+            <input type="text" name="jyjg" lay-verify="required" placeholder="请输入交易价格" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">发布时间</label>
+        <div class="layui-input-inline">
+            <input type="text" name="sj" lay-verify="required" placeholder="请输入发布时间" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">录入人</label>
+        <div class="layui-input-inline">
+            <input type="text" name="lrr" lay-verify="required" placeholder="请输入录入人" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">录入日期</label>
+        <div class="layui-input-inline">
+            <input type="text" name="lrrq" lay-verify="required" placeholder="请输入录入日期" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+</div>
+</html>

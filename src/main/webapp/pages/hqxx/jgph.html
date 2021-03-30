@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>价格排行</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../../public/css/font.css"/>
+    <link rel="stylesheet" href="../../public/layui/css/layui.css">
+</head>
+<body>
+
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-body">
+            <table class="layui-hide" id="dataTable" lay-filter="dataTable"></table>
+        </div>
+    </div>
+</div>
+
+<script src="../../public/layui/layui.js"></script>
+<script>
+    layui.extend({
+        admin: '{/}../../public/js/admin'
+    });
+    layui.use(['table', 'jquery', 'form', 'admin'], function (table, $, form, admin) {
+
+        table.render({
+            elem: '#dataTable'
+            , url: 'qgjg.json'
+            , limit: 10
+            , count: 15
+            , cols: [[
+                {field: 'sj', title: '时间'}
+                , {field: 'pz', title: '产品/品种'}
+                , {field: 'cd', title: '所在产地'}
+                , {field: 'je', title: '价格', sort: true}
+                , {
+                    field: 'sheng', title: '升/降', templet: function (d) {
+                        if (d.sheng.substr(0, 1) == "+") {
+                            return '<span style="color: red;">' + d.sheng + '</span>';
+                        } else if (d.sheng.substr(0, 1) == "-") {
+                            return '<span style="color: green;">' + d.sheng + '</span>';
+                        } else {
+                            return d.sheng;
+                        }
+                    }
+                }
+                , {field: 'zst', title: '走势图', templet: function (d) {
+                        if (d.sheng.substr(0, 1) == "+") {
+                            return '<i class="layui-icon layui-icon-chart" style="font-size: 30px; color: red;"></i>';
+                        } else if (d.sheng.substr(0, 1) == "-") {
+                            return '<i class="layui-icon layui-icon-chart" style="font-size: 30px; color: green;"></i>';
+                        } else {
+                            return '<i class="layui-icon layui-icon-subtraction" style="font-size: 30px; color: blue;"></i>';
+                        }
+                    }}
+            ]]
+            , page: true
+            , initSort: {
+                field: 'je'
+                ,type: 'desc'
+            }
+        });
+
+    });
+</script>
+</body>
+
+</html>

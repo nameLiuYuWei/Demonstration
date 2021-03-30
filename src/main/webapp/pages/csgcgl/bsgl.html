@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>标识管理</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../public/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../public/css/font.css">
+	<link rel="stylesheet" href="../../public/css/weadmin.css">
+    <script src="../../public/layui/layui.js" charset="utf-8"></script>
+    <script src="../../public/echarts/echarts.js" charset="utf-8"></script>
+    <script src="../../public/js/pubinclude.js"></script>
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/pub.js"></script>
+    <script src="bsgl.js?v=1.3"></script>
+</head>
+<body>
+<div style="background-color: white;padding: 20px;">
+	<h3 style="margin-bottom: 15px"><b>标识管理</b></h3>
+    <form class="layui-form " action="">
+        <div class="layui-form-item">
+        	<div class="layui-inline">
+	            <label class="layui-form-label">农户</label>
+	            <div class="layui-input-inline">
+	                <input type="text"  id="gsid"  class="layui-input" >
+	            </div>
+            </div>
+            <div class="layui-inline">
+	            <label class="layui-form-label">时间起</label>
+	            <div class="layui-input-inline">
+		            <input type="text" class="layui-input" id="sjq" >
+	            </div>
+            </div>
+            <div class="layui-inline">
+	            <label class="layui-form-label">时间止</label>
+	            <div class="layui-input-inline">
+	                <input type="text" class="layui-input" id="sjz" >
+	            </div>
+            </div>
+            <!-- <div style="margin-left: 50%;">
+                <button type="button" class="layui-btn" lay-submit="" lay-filter="demo1" onclick="">查询</button>
+                <button type="button" class="layui-btn" lay-submit="" lay-filter="demo1" onclick="print()">打印标识码</button>
+            </div> -->
+         </div>
+         <div class="layui-form-item">
+         	<div class="layui-btn-container">
+                    <button type="button" class="layui-btn" id='query'>
+                        <i class="layui-icon layui-icon-search"></i> &nbsp;查询
+                    </button>
+                    <button type="button" class="layui-btn" onClick="print()">
+                        <i class="layui-icon layui-icon-picture"></i> &nbsp;打印标识码
+                    </button>
+            </div>
+         </div>
+         <table class="layui-table" id="ywbd"  lay-filter="ywbd"></table>
+    </form>
+</div>
+</body>
+</html>

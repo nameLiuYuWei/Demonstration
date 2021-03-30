@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../public/vue/element-ui.css">
+    <script type="text/javascript" src="../../public/vue/vue.min.js"></script>
+    <script type="text/javascript" src="../../public/vue/g2plot.min.js"></script>
+    <script type="text/javascript" src="../../public/vue/axios.min.js"></script>
+    <script src="../../public/vue/element-ui.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="app">
+    
+    
+      <el-row :gutter="20">
+            <el-col :span="14">
+                <div class="grid-content">
+                    <div class="title-label">电子发票（票据）全链应用推广进度</div>
+                    <div class="content">
+                        <div id="containerLine"></div>
+                    </div>
+                </div>
+            </el-col>
+             <el-col :span="10">
+                <div class="grid-content">
+                    <div class="title-label">电子发票（票据）全链应用推广进度</div>
+                    <div class="content">
+                        <div id="containerPie"></div>
+                    </div>
+                </div>
+            </el-col>
+        </el-row>
+
+        <el-row :gutter="20">
+            <el-col :span="14">
+                <div class="grid-content">
+                    <div class="title-label">电子发票（票据）全链应用推广进度</div>
+                    <div class="content">
+                        <div id="container"></div>
+                    </div>
+                </div>
+            </el-col>
+            <el-col :span="10">
+                <div class="grid-content">
+                    <div class="title-label">工作动态</div>
+                    <div class="content">
+                        <div class="gzdt-list">
+                            <div v-for="(item,index) in gzdtDatas" class="gzdt-list-item">
+
+                                <div v-if="index%2==0" class="gzdt-list-item-left">
+
+                                    <img  src="./imgs/hgzdt@odd.png" alt="" srcset="">
+                                  
+                                    <div class="gzdt-date">{{item.time}}</div>
+                                </div>
+
+                                <div v-else class="gzdt-list-item-left">
+
+                                    <img  src="./imgs/hgzdt@even.png" alt="" srcset="">
+                              
+                                    <div class="gzdt-date">{{item.time}}</div>
+                                </div>
+
+                                <div class="gzdt-list-item-link">
+                                    <el-link type="primary">{{item.text}}</el-link>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </el-col>
+        </el-row>
+
+        <el-row :gutter="20">
+            <el-col :span="14">
+                <div class="grid-content">
+                    <div class="title-label">开具推行指标</div>
+                    <div class="content">
+                        <div class="areaTitle">
+                            <img src="./imgs/ly@2x.png" alt="" srcset="">
+                            <span class="smallFont">领用</span>
+                        </div>
+
+                        <el-row :gutter="20">
+                            <el-col :span="9">
+                                <div class="two-part-item">
+                                    <h4>发票领用</h4>
+                                    <div><span class="cus-blue">{{fply.num}}</span>户</div>
+                                    <div class="slider-intro cus-blue">
+                                        <p>
+                                            发票占用比
+                                        </p>
+                                        <p>
+                                            {{fply.bfb}}%
+                                        </p>
+                                    </div>
+                                    <el-slider v-model="fply.bfb"></el-slider>
+                                </div>
+                            </el-col>
+                            <el-col :span="9">
+                                <div class="two-part-item">
+                                    <h4>票据使用</h4>
+                                    <div><span class="cus-yellow">{{pjsy.num}}</span>户</div>
+                                    <div class="slider-intro cus-yellow">
+                                        <p>
+                                            票据占用比
+                                        </p>
+                                        <p>
+                                            {{pjsy.bfb}}%
+                                        </p>
+                                    </div>
+                                    <el-slider class="cus-yellow" v-model="pjsy.bfb"></el-slider>
+                                </div>
+
+                            </el-col>
+                            <el-col :span="6">
+                                <div class="btn-wrapper">
+                                    <el-button type="primary">查看详情</el-button>
+                                </div>
+                            </el-col>
+                        </el-row>
+
+                    </div>
+                </div>
+            </el-col>
+            <el-col :span="10">
+                <div class="grid-content">
+                    <div class="title-label">应用保障指标</div>
+                    <div class="content">
+                        <div class="areaTitle">
+                            <img src="./imgs/bx@2x.png" alt="" srcset="">
+                            <span class="smallFont">报销</span>
+                        </div>
+
+                        <el-row :gutter="20">
+                            <el-col :span="9">
+                                <div class="two-part-item">
+                                    <h4>报销</h4>
+                                    <div style="margin-top: 30px;"><span class="cus-blue">{{baoxiao.num}}</span>户</div>
+                                    
+                                </div>
+                            </el-col>
+                            <el-col :span="9">
+                                <div class="two-part-item">
+                                    <h4>报销率</h4>
+                                    <div style="margin-top: 30px;"><span class="cus-yellow">{{baoxiao.bfl}}</span>%</div>
+                                </div>
+                            </el-col>
+                            <el-col :span="6">
+                                <div class="btn-wrapper">
+                                    <el-button type="primary">查看详情</el-button>
+                                </div>
+                            </el-col>
+                        </el-row>
+
+                    </div>
+                </div>
+            </el-col>
+        </el-row>
+
+        <el-row :gutter="20">
+            <el-col :span="14">
+                <div class="grid-content">
+                    <div class="content">
+                        <div class="areaTitle">
+                            <img src="./imgs/kj@2x.png" alt="" srcset="">
+                            <span class="smallFont">开具</span>
+                        </div>
+
+                        <el-row :gutter="20">
+                            <el-col :span="9">
+                                <div class="two-part-item">
+                                    <h4>发票开具</h4>
+                                    <div><span class="cus-blue">{{fpkj.num}}</span>户</div>
+                                    <div class="slider-intro cus-blue">
+                                        <p>
+                                            票据开具
+                                        </p>
+                                        <p>
+                                            {{fpkj.bfb}}%
+                                        </p>
+                                    </div>
+                                    <el-slider v-model="fpkj.bfb"></el-slider>
+                                </div>
+                            </el-col>
+                            <el-col :span="9">
+                                <div class="two-part-item">
+                                    <h4>票据开具</h4>
+                                    <div><span class="cus-yellow">{{pjkj.num}}</span>户</div>
+                                    <div class="slider-intro cus-yellow">
+                                        <p>
+                                            票据占用比
+                                        </p>
+                                        <p>
+                                            {{pjkj.bfb}}%
+                                        </p>
+                                    </div>
+                                    <el-slider class="cus-yellow" v-model="pjkj.bfb"></el-slider>
+                                </div>
+
+                            </el-col>
+                            <el-col :span="6">
+                                <div class="btn-wrapper">
+                                    <el-button type="primary">查看详情</el-button>
+                                </div>
+                            </el-col>
+                        </el-row>
+
+                    </div>
+                </div>
+            </el-col>
+            <el-col :span="10">
+                <div class="grid-content">
+                    <div class="content">
+                        <div class="areaTitle">
+                            <img src="./imgs/gd@2x.png" alt="" srcset="">
+                            <span class="smallFont">归档</span>
+                        </div>
+
+                        <el-row :gutter="20">
+                            <el-col :span="9">
+                                <div class="two-part-item">
+                                    <h4>归档</h4>
+                                    <div style="margin-top: 30px;"><span class="cus-blue">{{gd.num}}</span>户</div>
+                                    
+                                </div>
+                            </el-col>
+                            <el-col :span="9">
+                                <div class="two-part-item">
+                                    <h4>归档率</h4>
+                                    <div style="margin-top: 30px;"><span class="cus-yellow">{{gd.bfl}}</span>%</div>
+                                </div>
+                            </el-col>
+                            <el-col :span="6">
+                                <div class="btn-wrapper">
+                                    <el-button type="primary">查看详情</el-button>
+                                </div>
+                            </el-col>
+                        </el-row>
+
+                    </div>
+                </div>
+            </el-col>
+        </el-row>
+
+        <el-row :gutter="20">
+            <el-col :span="14">
+                <div class="grid-content">
+                    <div class="content">
+                        <div class="areaTitle">
+                            <img src="./imgs/zdly@2x.png" alt="" srcset="">
+                            <span class="smallFont">重点领域</span>
+                        </div>
+
+                        <el-row :gutter="20">
+                            <el-col :span="9">
+                                <div class="two-part-item">
+                                    <h4>发票领用</h4>
+                                    <div><span class="cus-blue">{{zdfply.num}}</span>户</div>
+                                    <div class="slider-intro cus-blue">
+                                        <p>
+                                            票据领用
+                                        </p>
+                                        <p>
+                                            {{zdfply.bfb}}%
+                                        </p>
+                                    </div>
+                                    <el-slider v-model="zdfply.bfb"></el-slider>
+                                </div>
+                            </el-col>
+                            <el-col :span="9">
+                                <div class="two-part-item">
+                                    <h4>票据使用</h4>
+                                    <div><span class="cus-yellow">{{zdpjly.num}}</span>户</div>
+                                    <div class="slider-intro cus-yellow">
+                                        <p>
+                                            票据占用比
+                                        </p>
+                                        <p>
+                                            {{zdpjly.bfb}}%
+                                        </p>
+                                    </div>
+                                    <el-slider class="cus-yellow" v-model="zdpjly.bfb"></el-slider>
+                                </div>
+
+                            </el-col>
+                            <el-col :span="6">
+                                <div class="btn-wrapper">
+                                    <el-button type="primary">查看详情</el-button>
+                                </div>
+                            </el-col>
+                        </el-row>
+
+                    </div>
+                </div>
+            </el-col>
+            <el-col :span="10">
+                <div class="grid-content">
+                    <div class="content">
+                        <div class="areaTitle">
+                            <img src="./imgs/zdjs@2x.png" alt="" srcset="">
+                            <span class="smallFont">制度建设</span>
+                        </div>
+
+                        <el-row :gutter="20">
+                            <el-col :span="9">
+                                <div class="two-part-item">
+                                    <h4>制度建设</h4>
+                                    <div style="margin-top: 30px;"><span class="cus-blue">{{zdjs.num}}</span>户</div>
+                                    
+                                </div>
+                            </el-col>
+                            <el-col :span="9">
+                                <div class="two-part-item">
+                                    <h4>完成率</h4>
+                                    <div style="margin-top: 30px;"><span class="cus-yellow">{{zdjs.bfl}}</span>%</div>
+                                </div>
+                            </el-col>
+                            <el-col :span="6">
+                                <div class="btn-wrapper">
+                                    <el-button type="primary">查看详情</el-button>
+                                </div>
+                            </el-col>
+                        </el-row>
+
+                    </div>
+                </div>
+            </el-col>
+        </el-row>
+    </div>
+</body>
+<script src="index.js"></script>
+
+</html>

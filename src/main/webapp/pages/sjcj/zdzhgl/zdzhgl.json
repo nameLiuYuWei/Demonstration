@@ -1,0 +1,44 @@
+
+{
+  "code": 0,
+   "msg": "",
+   "count": 5,
+   "data": [
+   {
+       "numbers":"1",
+	   "ZDMC":"ID",
+	   "BDS":"USER.ID",
+	   "ZDMS":"用户信息ID",
+	   "ZDLX":"varchar",
+	   "ZDDX":"10"
+  },{
+       "numbers":"2",
+	   "ZDMC":"NAME",
+	   "BDS":"USER.NAME",
+	   "ZDMS":"用户信息名称",
+	   "ZDLX":"varchar",
+	   "ZDDX":"60"
+  },{
+       "numbers":"3",
+	   "ZDMC":"SEX",
+	   "BDS":"USER.SEX",
+	   "ZDMS":"用户信息性别",
+	   "ZDLX":"char",
+	   "ZDDX":"1"
+  },{
+       "numbers":"4",
+	   "ZDMC":"TIME",
+	   "BDS":"USER.TIME",
+	   "ZDMS":"用户信息登记时间",
+	   "ZDLX":"date",
+	   "ZDDX":""
+  },{
+       "numbers":"5",
+	   "ZDMC":"YXBZ",
+	   "BDS":"USER.YXBZ",
+	   "ZDMS":"用户信息是否有效",
+	   "ZDLX":"char",
+	   "ZDDX":"1"
+  }
+  ]
+}  

@@ -1,0 +1,73 @@
+﻿<html>
+    <head>
+        <title>专家在线答疑</title>
+        <meta charset="utf-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="../../../public/layui/css/layui.css" media="all">
+        <script src="../../../public/layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="../../../public/js/jquery.min.js"></script>
+        <link rel="stylesheet" href="../public/css/css.css">
+        <script type="text/javascript" src="./zjzxdy.js?v=1.0.1"></script>
+        <style>
+            .layui-input-block{
+                width: auto;
+            }
+        </style>
+    </head>
+<body>
+    <form class="layui-form" action="">
+        <div style="padding: 20px;">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">问题类型</label>
+                    <div class="layui-input-inline">
+                        <select name="username">
+                            <option value="">--请选择--</option>
+                            <option value="答疑解惑" selected>答疑解惑</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">问题标题</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" value="杨梅树的卷叶蛾要怎样防治?" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">问题内容</label>
+                <div class="layui-input-block">
+                    <textarea placeholder="请输入内容" id="wtnr" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">姓名</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="username" value="张朝阳" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">电话</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="tel" value="13720003749" class="layui-input">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">答疑内容</label>
+                <div class="layui-input-block">
+                    <textarea placeholder="请输入答疑内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo" style="width: 120px;">提交</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

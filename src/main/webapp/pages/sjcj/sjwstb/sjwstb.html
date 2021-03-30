@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>农户基础信息采集表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../../public/layui/css/layui.css"  media="all">
+    <script src="../../../public/layui/layui.js" charset="utf-8"></script>
+    <script src="../../../public/js/jquery.min.js"></script>
+    <script src="sjwstb.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        .table{
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+        .layui-tab th{
+            height: 20px;
+            text-align:right;
+            padding: 0px;
+            padding-right:10px;
+            background-color: #d3dcd4;
+        }
+        .layui-tab1 th{
+            height: 20px;
+            text-align:center;
+            padding: 0px;
+            background-color: #d3dcd4;
+        }
+        .layui-tab td{
+            padding: 0px;
+            /*text-align:left;
+            padding-left:10px;*/
+        }
+        .layui-tab-mx td{
+            padding: 0px;
+            text-align:left;
+            padding-left:10px;
+        }
+
+    </style>
+</head>
+<body>
+<fieldset class="layui-elem-field layui-field-title" >
+    <legend>农户基础信息采集</legend>
+</fieldset>
+
+<form class="layui-form" action="">
+    <div class="layui-form-item" style="border: 1px;color: #009688;">
+        <div class="table">
+            <table class="layui-table">
+                <tr class="layui-tab">
+                    <th>户主姓名</th>
+                    <td>
+                        <input name="xm" lay-verify="title" autocomplete="off"  class="layui-input" type="text" value="吴卫勇">
+                    </td>
+                    <th>性别</th>
+                    <td>
+                        <input name="xb" lay-verify="title" autocomplete="off"  class="layui-input" type="text" value="男">
+                    </td>
+                    <th>身份证号</th>
+                    <td colspan="2">
+                        <input name="sfzjhm" lay-verify="title" autocomplete="off"  class="layui-input" type="text" value="332624197402263991">
+                    </td>
+                </tr>
+                <tr class="layui-tab">
+                    <th>户口本号</th>
+                    <td>
+                        <input name="hkbh" lay-verify="title" autocomplete="off"  class="layui-input" type="text" value="33010000001">
+                    </td>
+                    <th>家庭人口</th>
+                    <td>
+                        <input name="jtrk" lay-verify="title" autocomplete="off"  class="layui-input" type="text" value="4">
+                    </td>
+                    <th>开户银行营业网点</th>
+                    <td colspan="2">
+                        <input name="khyhyywd" lay-verify="title" autocomplete="off"  class="layui-input" type="text" value="仙居农业银行">
+                    </td>
+                </tr>
+                <tr class="layui-tab">
+                    <th>银行卡账号名称</th>
+                    <td>
+                        <input name="yhzhmc" lay-verify="title" autocomplete="off"  class="layui-input" type="text" value="吴卫勇">
+                    </td>
+                    <th>银行卡卡号</th>
+                    <td>
+                        <input name="yhkh" lay-verify="title" autocomplete="off"  class="layui-input" type="text" value="19945101040026498">
+                    </td>
+                    <th>手机</th>
+                    <td colspan="2">
+                        <input name="sjhm" lay-verify="title" autocomplete="off"  class="layui-input" type="text" value="13906555616">
+                    </td>
+                </tr>
+                <tr class="layui-tab">
+                    <th>固定电话</th>
+                    <td>
+                        <input name="gddh" lay-verify="title" autocomplete="off"  class="layui-input" type="text" value="">
+                    </td>
+                    <th>邮政编码</th>
+                    <td>
+                        <input name="yzbm" lay-verify="title" autocomplete="off"  class="layui-input" type="text" value="330100">
+                    </td>
+                    <th>家庭住址</th>
+                    <td colspan="2">
+                        <input name="jtzz" lay-verify="title" autocomplete="off"  class="layui-input" type="text" value="安洲街道岭脚村">
+                    </td>
+                </tr>
+                <tr class="layui-tab" >
+                    <th colspan="7"></th>
+                </tr>
+                <tr class="layui-tab layui-tab1">
+                    <th>种植作物种类</th>
+                    <th>种植地址</th>
+                    <th>种植面积（亩）</th>
+                    <th>作物数量</th>
+                    <th>是否已参加保险</th>
+                    <th>预计今年产量（公斤）</th>
+                    <th>预计今年销售额（元）</th>
+                </tr>
+                <tr id="zzwxqxx" class="layui-tab">
+                    <td>
+                        <input name="gddh" class="layui-input" type="text" value="东魁">
+                    </td>
+                    <td>
+                        <input name="yzbm" class="layui-input" type="text" value="岭脚村">
+                    </td>
+                    <td>
+                        <input name="jtzz" class="layui-input" type="text" value="60">
+                    </td>
+                    <td>
+                        <input name="gddh" class="layui-input" type="text" value="450">
+                    </td>
+                    <td>
+                        <input name="yzbm" class="layui-input" type="text" value="是">
+                    </td>
+                    <td>
+                        <input name="jtzz" class="layui-input" type="text" value="30000">
+                    </td>
+                    <td>
+                        <input name="jtzz" class="layui-input" type="text" value="700000">
+                    </td>
+                </tr> 
+                <tbody id="zzwxq_mx">
+    
+  				</tbody>
+            </table>
+            <div style="text-align: center;">
+                <tr>
+                    <button onclick="save_tj()" type="button" class="layui-btn">提交</button>
+                    <button onclick="add()" type="button" class="layui-btn">添加</button>
+                </tr>
+            </div>
+        </div>
+    </div>
+
+
+</form>
+</body>
+</html>

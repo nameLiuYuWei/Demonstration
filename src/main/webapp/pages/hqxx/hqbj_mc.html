@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>行情报价 - 卖出</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../../public/layui/css/layui.css" media="all">
+</head>
+<body>
+
+<div class="layui-form" lay-filter="layuiadmin-app-form-list" id="layuiadmin-app-form-list"
+     style="padding: 20px 30px 0 0;">
+    <div class="layui-form-item">
+        <label class="layui-form-label">杨梅品种</label>
+        <div class="layui-input-inline">
+            <select name="label">
+                <option value="1">东魁杨梅</option>
+                <option value="2">荸荠杨梅</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">可买数量</label>
+        <div class="layui-input-inline">
+            <input type="text" name="author" lay-verify="required" autocomplete="off"
+                   class="layui-input" value="10000">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">卖出数量</label>
+        <div class="layui-input-inline">
+            <input type="text" name="author" lay-verify="required" placeholder="请输入数量" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">价格</label>
+        <div class="layui-input-inline">
+            <input type="text" name="author" lay-verify="required" placeholder="请输入价格" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">姓名</label>
+        <div class="layui-input-inline">
+            <input type="text" name="author" lay-verify="required" placeholder="请输入姓名" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">身份证号码</label>
+        <div class="layui-input-inline">
+            <input type="text" name="author" lay-verify="required" placeholder="请输入身份证号码" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">手机号码</label>
+        <div class="layui-input-inline">
+            <input type="text" name="author" lay-verify="required" placeholder="请输入手机号码" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">报价日期</label>
+        <div class="layui-input-inline">
+            <input type="text" name="author" lay-verify="required" placeholder="请输入报价日期" autocomplete="off"
+                   class="layui-input" id="bjrq">
+        </div>
+    </div>
+    <div class="layui-form-item layui-hide">
+        <button lay-submit lay-filter="layuiadmin-app-form-submit" id="layuiadmin-app-form-submit"
+                name="确认" />
+    </div>
+</div>
+
+<script src="../../public/layui/layui.js"></script>
+<script>
+    layui.use(['form'], function () {
+        var $ = layui.$
+            , form = layui.form;
+
+
+        $('#bjrq').val(new Date().toLocaleDateString());
+
+
+
+      $('#layuiadmin-app-form-submit').on('click', function(){
+        layer.msg('报价成功');
+        $.model.closeAll();
+      });
+    })
+</script>
+</body>
+</html>

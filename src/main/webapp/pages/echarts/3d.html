@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 960px;
+  height: 500px;
+  position: relative;
+}
+path.slice{
+	stroke-width:2px;
+}
+polyline{
+	opacity: .3;
+	stroke: black;
+	stroke-width: 2px;
+	fill: none;
+} 
+svg text.percent{
+	fill:white;
+	text-anchor:middle;
+	font-size:12px;
+}
+
+</style>
+<body>
+<!--
+<button onClick="changeData()">Change Data</button>
+-->
+<script src="../../public/js/d3.v3.min.js"></script>
+<script src="3d.js"></script>
+<script>
+
+var salesData=[
+	{label:"Basic", color:"#3366CC"},/*
+	{label:"Plus", color:"#DC3912"},
+	{label:"Lite", color:"#FF9900"},
+	{label:"Elite", color:"#109618"},*/
+	{label:"Delux", color:"109618"}
+];
+
+
+var quotesDonut=[
+	{label:"Basic", color:"#3366CC"},/*
+	{label:"Plus", color:"#DC3912"},
+	{label:"Lite", color:"#FF9900"},
+	{label:"Elite", color:"#109618"},*/
+	{label:"Delux", color:"white"}
+];
+
+var svg = d3.select("body").append("svg").attr("width",600).attr("height",700);
+
+svg.append("g").attr("id","salesDonut");
+svg.append("g").attr("id","quotesDonut");
+
+
+var json1=[{label:"Basic",value:700,color:"#3366CC"},{label:"Delux",value:300,color:"#109618"}];
+
+var json2=[{label:"Basic",value:700,color:"#3366CC"},{label:"Delux",value:300,color:"#109618"}];
+
+Donut3D.draw("salesDonut", json1, 200, 150, 120, 60, 20, 0.6);
+Donut3D.draw("quotesDonut", json2, 200, 100, 120, 60, 70, 0.6);
+	/*
+function changeData(){
+	Donut3D.transition("salesDonut", randomData(), 130, 100, 30, 0.4);
+	Donut3D.transition("quotesDonut", randomData(), 130, 100, 30, 0.4);
+	//Donut3D.draw("salesDonut", randomData(), 200, 100, 180, 80, 50, 0.4);
+	//Donut3D.draw("salesDonut", json1, 200, 100, 180, 80, 70, 0.4);
+	//Donut3D.draw("quotesDonut", json2, 200, 150, 180, 80, 20, 0.4);
+}
+
+function randomData(){
+	return salesData.map(function(d){ 
+		return {label:d.label, value:1000*Math.random(), color:d.color};});
+}*/
+</script>
+</body>

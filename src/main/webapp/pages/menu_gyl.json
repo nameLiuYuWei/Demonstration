@@ -1,0 +1,155 @@
+{
+	"status": 0,
+	"msg": "ok",
+	"data": [{
+				"id": 4,
+				"name": "病虫害检测系统",
+				"icon": "&#xe70b;",
+				"url": "",
+				"children": [{
+					"id": 41,
+					"name": "病虫害预警",
+					"icon": "&#xe70b;",
+					"url": "",
+					"children": [{
+						"id": 411,
+						"name": "历史虫害数据分析",
+						"icon": "",
+						"url": "pestmonitor/ymchpages/lschsjfx.html"
+					},{
+						"id": 412,
+						"name": "虫害情况查询",
+						"icon": "",
+						"url": "pestmonitor/ymchpages/hcqkcx.html"
+					},{
+						"id": 413,
+						"name": "病虫害数据管理",
+						"icon": "",
+						"url": "pestmonitor/bchsjwh/bchsjwh_cx.html"
+					},{
+						"id": 414,
+						"name": "环境阈值管理",
+						"icon": "",
+						"url": "pestmonitor/hjyzgl/hjyzgl_cx.html"
+					},{
+						"id": 415,
+						"name": "未知病害上报",
+						"icon": "",
+						"url": "pestmonitor/wzbhsb/wzbhsb_cx.html"
+					},{
+						"id": 416,
+						"name": "虫害查询治病",
+						"icon": "",
+						"url": "pestmonitor/cxzb/cxzb_cx.html"
+					},{
+						"id": 417,
+						"name": "专家在线答疑",
+						"icon": "",
+						"url": "pestmonitor/zjzxdy/zjzxdy_cx.html"
+					}]
+				},
+				{
+					"id": 42,
+					"name": "虫情测报仪",
+					"icon": "&#xe70b;",
+					"url": "pestmonitor/cqcby/cqcbycx.html"
+					
+				},{
+					"id": 43,
+					"name": "病害高光谱诊断",
+					"icon": "&#xe70b;",
+					"url": "",
+					"children": [{
+						"id": 431,
+						"name": "光谱数据记录",
+						"icon": "",
+						"url": ""
+					},{
+						"id": 432,
+						"name": "分析结果展示",
+						"icon": "",
+						"url": ""
+					}]
+				}]
+			},{
+				"id": 5,
+				"name": "质量安全追溯系统",
+				"icon": "&#xe70b;",
+				"url": "",
+				"children": [{
+					"id": 511,
+					"name": "生产资料管理",
+					"icon": "",
+					"url": "sczlgl/sczlgl.html"
+				}, {
+					"id": 512,
+					"name": "投入品管理",
+					"icon": "",
+					"url": "trpgl/trpgl.html"
+				},{
+					"id": 513,
+					"name": "生产作业管理",
+					"icon": "",
+					"url": "",
+					"children": [{
+						"id": 5131,
+						"name": "生产人员管理",
+						"icon": "",
+						"url": "sczygl/scrygl.html"
+					}, {
+						"id": 5132,
+						"name": "播种管理",
+						"icon": "",
+						"url": "sczygl/bzgl.html"
+					}, {
+						"id": 5133,
+						"name": "施肥管理",
+						"icon": "",
+						"url": "sczygl/sfgl.html"
+					}, {
+						"id": 5134,
+						"name": "打药管理",
+						"icon": "",
+						"url": "sczygl/dygl.html"
+					}]
+				},{
+					"id": 514,
+					"name": "采收过程管理",
+					"icon": "",
+					"url": "",
+					"children": [{
+						"id": 5141,
+						"name": "采收登记",
+						"icon": "",
+						"url": "csgcgl/csdj.html"
+					}, {
+						"id": 5142,
+						"name": "产品批次",
+						"icon": "",
+						"url": "csgcgl/cppccx.html"
+					}, {
+						"id": 5143,
+						"name": "标识管理",
+						"icon": "",
+						"url": "csgcgl/bsgl.html"
+					}]
+				}, {
+					"id": 515,
+					"name": "销售过程管理",
+					"icon": "",
+					"url": "",
+					"children": [{
+						"id": 5151,
+						"name": "销售管理",
+						"icon": "",
+						"url": "xsgcgl/xsgl.html"
+					}, {
+						"id": 5152,
+						"name": "订单管理",
+						"icon": "",
+						"url": "xsgcgl/ddgl.html"
+					}]
+				}]
+			}
+	]
+}

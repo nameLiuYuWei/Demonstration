@@ -1,0 +1,57 @@
+
+{
+  "code": 0,
+   "msg": "",
+   "count": 10,
+   "data": [
+   {
+       "numbers":"1",
+	   "FWMC":"病虫害光谱数据采集",
+	   "FWDZ":"192.100.160.13",
+	   "FWZT":"正常",
+	   "FWLJS":"157"   
+   },{
+       "numbers":"2",
+	   "FWMC":"病虫害光谱数据采集",
+	   "FWDZ":"192.100.160.13",
+	   "FWZT":"正常",
+	   "FWLJS":"325"	   
+   },{
+       "numbers":"3",
+	   "FWMC":"无人机拍摄数据采集",
+	   "FWDZ":"192.100.160.157",
+	   "FWZT":"正常",
+	   "FWLJS":"289"	   
+   },{
+       "numbers":"4",
+	   "FWMC":"施肥数据采集",
+	   "FWDZ":"192.100.160.157",
+	   "FWZT":"正常",
+	   "FWLJS":"126"	   
+   },{
+       "numbers":"5",
+	   "FWMC":"打药数据采集",
+	   "FWDZ":"192.100.160.8",
+	   "FWZT":"正常",
+	   "FWLJS":"287"	   
+   },{
+       "numbers":"6",
+	   "FWMC":"杨梅古树巡检数据采集",
+	   "FWDZ":"192.100.160.8",
+	   "FWZT":"正常",
+	   "FWLJS":"368"	   
+   },{
+       "numbers":"7",
+	   "FWMC":"<p style='color:red;'>杨梅古树养护数据采集</p>",
+	   "FWDZ":"<p style='color:red;'>192.100.160.31</p>",
+	   "FWZT":"<p style='color:red;'>异常</p>",
+	   "FWLJS":"<p style='color:red;'>679</p>"	   
+   },{
+       "numbers":"8",
+	   "FWMC":"杨梅价格行情数据采集",
+	   "FWDZ":"192.100.160.31",
+	   "FWZT":"正常",
+	   "FWLJS":"330"	   
+   }
+  ]
+}  

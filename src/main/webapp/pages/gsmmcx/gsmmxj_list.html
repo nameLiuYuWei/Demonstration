@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>巡查列表</title>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../public/layui/css/layui.css" media="all">
+    <script src="../../public/layui/layui.js" charset="utf-8"></script>
+    <script src="../../public/echarts/echarts.js" charset="utf-8"></script>
+    <script src="../../public/js/pubinclude.js"></script>
+    <script src="../../public/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/css.css">
+    <script type="text/javascript" src="gsmmxj_list.js?v=1.0.1"></script>
+</head>
+<body style="padding-left: 10px;padding-right: 10px;">
+<form class="layui-form "  style="background-color: #F2F2F2;overflow:hidden;">
+    <div class="layui-form-item" style="margin-left: 30px;margin-top: 20px;">
+        <div class="layui-inline">
+            <label class="layui-form-label">古树编号</label>
+            <div class="layui-input-inline">
+                <input type="text" name="HandoverCompany" id="HandoverCompany" class="layui-input" style="position:absolute;z-index:2;width:84%;border-right: 0px;" lay-verify="required" value="" onkeyup="search()" autocomplete="off">
+                <select type="text" id="hc_select" lay-filter="hc_select" autocomplete="off" placeholder="移交单位全称" lay-verify="required" class="layui-select" lay-search>
+                    <option dxmc="XJ-YM-2021000081759 仙居县横溪镇镇头村屏峰岩" value="XJ-YM-2021000081759 仙居县横溪镇镇头村屏峰岩">XJ-YM-2021000081759 仙居县横溪镇镇头村屏峰岩</option>
+                    <option dxmc="XJ-YM-2021000081760 仙居县湫山乡抱龙村" value="XJ-YM-2021000081760 仙居县湫山乡抱龙村">XJ-YM-2021000081760 仙居县湫山乡抱龙村</option>
+                    <option dxmc="XJ-YM-2021000081766 仙居县湫山乡杨岸村" value="XJ-YM-2021000081766 仙居县湫山乡杨岸村">XJ-YM-2021000081766 仙居县湫山乡杨岸村</option>
+                    <option dxmc="XJ-YM-2021000081755 仙居县福应街道" value="XJ-YM-2021000081755 仙居县福应街道">XJ-YM-2021000081755 仙居县福应街道</option>
+                    <option dxmc="XJ-YM-2021000081776 仙居县盘皤滩乡村边" value="XJ-YM-2021000081776 仙居县盘皤滩乡村边">XJ-YM-2021000081776 仙居县盘皤滩乡村边</option>
+                    <option dxmc="XJ-YM-2021000081790 仙居县南峰街道" value="XJ-YM-2021000081790 仙居县南峰街道">XJ-YM-2021000081790 仙居县南峰街道</option>
+                </select>
+            </div>
+        </div>
+        <button type="button" class="layui-btn"  onclick="cx()" style="margin-left: 10px;">查 询</button>
+    </div>
+
+    <table class="layui-hide" id="test" lay-filter="test" ></table>
+</form>
+
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button type="button" class="layui-btn" onclick="addxc()">新增巡查信息</button>
+    </div>
+</script>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="del">详情</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">巡查记录</a>
+    <a class="layui-btn layui-btn-xs" lay-event="dw">定位</a>
+</script>
+
+</body>
+</html>

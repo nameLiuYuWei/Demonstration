@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>报告编制</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../../public/css/font.css"/>
+    <link rel="stylesheet" href="../../public/layui/css/layui.css">
+</head>
+<body class="layui-fluid">
+
+    <div class="layui-card">
+        <div class="layui-card-body">
+            杨梅价格指数编制遵循以下原则
+            <table class="layui-table" lay-skin="nob" lay-even>
+                <thead>
+                <tr>
+                    <th>一是科学性：</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>测算方法科学，测算结果全面、真实、客观，通过优化统计算法，完善指数编制制度，建立自动数据采集和统计系统，尽可能减少人为因素的影响。</td>
+                </tr>
+                <tr>
+                    <td>二是动态性：</td>
+                </tr>
+                <tr>
+                    <td>随着试运行工作的开展，逐步完善指数编制方案，建立日、周、月、年指数体系结构；</td>
+                </tr>
+                <tr>
+                    <th>三是稳定性：</th>
+                </tr>
+                <tr>
+                    <td>指数体系结构和运行机制保持相对稳定，实现指数长期内的可比性；
+                        四是可解读性：指数能够真实、充分反映杨梅交易的市场变化，指数发生较大变动时，能够提供合理解释。
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            监测: 2021年03月10日,荸荠杨梅批发价格总指数是<span style="color: red;">26</span>,东魁杨梅批发价格指数是<span style="color: red;">30</span>。
+            <div id="charts" style="width: 100%;height:300px;"></div>
+
+            <div style="text-align: center;">
+                <button class="layui-btn layui-btn-normal" data-type="fb">
+                    <i class="layui-icon layui-icon-upload-circle"> 提 交</i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+<script src="../../public/layui/layui.js"></script>
+<script src="../../public/echarts/echarts.js"></script>
+<script>
+    layui.extend({
+        admin: '{/}../../public/js/admin'
+    });
+    layui.use(['table', 'jquery', 'form', 'admin'], function (table, $, form, admin) {
+
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('charts'));
+
+        var base = +new Date(2020, 1, 1);
+        var oneDay = 3600 * 1000;
+        var date = [];
+        var table_date = [];
+
+        var data = [Math.random() * 100 +10];
+
+        for (var i = 1; i < 10000; i++) {
+            var now = new Date(base += oneDay);
+            date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/')+' '+now.getHours());
+            var ls_je =  Math.round((Math.random() - 0.5) * 10 + data[i - 1]);
+            if(ls_je<0){
+                ls_je = ls_je*-1;
+            }
+            if(ls_je<10){
+                ls_je = 10;
+            }
+            if(ls_je>100){
+                ls_je = 100;
+            }
+            data.push(ls_je);
+
+            var zdz = (Math.random() - 0.5).toFixed(2);
+            table_date.push({'sj':date[i-1],'je':data[i],'zdz':zdz});
+        }
+
+        // 指定图表的配置项和数据
+        var option = {
+            tooltip: {
+                trigger: 'axis'
+            },
+            title: {
+                left: 'center',
+                text: '杨梅价格指数'
+            },
+            toolbox: {
+                feature: {
+                    dataZoom: {
+                        yAxisIndex: 'none'
+                    },
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: date
+            },
+            yAxis: {
+                type: 'value',
+                boundaryGap: [0, '100%']
+            },
+            dataZoom: [{
+                type: 'inside',
+                start: 90,
+                end: 100
+            }, {
+                start: 90,
+                end: 100
+            }],
+            series: [
+                {
+                    name: '价格',
+                    type: 'line',
+                    symbol: 'none',
+                    sampling: 'lttb',
+                    itemStyle: {
+                        color: 'rgb(222, 35, 35)'
+                    },
+                    data: data
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+
+
+        var active = {
+            fb: function () {
+                layer.msg('发布成功');
+            }
+        };
+
+        $('.layui-btn').on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+</script>
+</body>
+
+</html>

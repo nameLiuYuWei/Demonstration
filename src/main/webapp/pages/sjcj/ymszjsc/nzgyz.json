@@ -1,0 +1,87 @@
+
+{
+  "code": 0
+  ,"msg": ""
+  ,"count": 10
+  ,"data": [{
+       "numbers":"1",
+	   "NZGYZ":"<p style='color:red;'>福应街道农资供应站</p>",
+	   "NZMC":"<p style='color:red;'>农药</p>",
+	   "GJZSL":"<p style='color:red;'>300</p>",
+	   "XSZSL":"<p style='color:red;'>220</p>",
+	   "KCZSL":"<p style='color:red;'>80</p>",
+	   "KCZDYCYL":"<p style='color:red;'>100</p>"
+  }, {
+       "numbers":"2",
+	   "NZGYZ":"步路乡农资供应站",
+	   "NZMC":"农药",
+	   "GJZSL":"200",
+	   "XSZSL":"90",
+	   "KCZSL":"110",
+	   "KCZDYCYL":"50"
+  },{
+       "numbers":"3",
+	   "NZGYZ":"<p style='color:red;'>安洲街道农资供应站</p>",
+	   "NZMC":"<p style='color:red;'>化肥</p>",
+	   "GJZSL":"<p style='color:red;'>400</p>",
+	   "XSZSL":"<p style='color:red;'>280</p>",
+	   "KCZSL":"<p style='color:red;'>120</p>",
+	   "KCZDYCYL":"<p style='color:red;'>150</p>"
+  },{
+       "numbers":"1",
+	   "NZGYZ":"官路镇农资供应站",
+	   "NZMC":"农药",
+	   "GJZSL":"300",
+	   "XSZSL":"180",
+	   "KCZSL":"120",
+	   "KCZDYCYL":"80"
+  },{
+       "numbers":"1",
+	   "NZGYZ":"<p style='color:red;'>淡竹乡农资供应站</p>",
+	   "NZMC":"<p style='color:red;'>化肥</p>",
+	   "GJZSL":"<p style='color:red;'>240</p>",
+	   "XSZSL":"<p style='color:red;'>180</p>",
+	   "KCZSL":"<p style='color:red;'>60</p>",
+	   "KCZDYCYL":"<p style='color:red;'>80</p>"
+  },{
+       "numbers":"1",
+	   "NZGYZ":"埠头镇农资供应站",
+	   "NZMC":"农药",
+	   "GJZSL":"280",
+	   "XSZSL":"180",
+	   "KCZSL":"100",
+	   "KCZDYCYL":"80"
+  },{
+       "numbers":"1",
+	   "NZGYZ":"湫山乡农资供应站",
+	   "NZMC":"化肥",
+	   "GJZSL":"200",
+	   "XSZSL":"90",
+	   "KCZSL":"110",
+	   "KCZDYCYL":"60"
+  },{
+       "numbers":"1",
+	   "NZGYZ":"<p style='color:red;'>淡竹乡农资供应站</p>",
+	   "NZMC":"<p style='color:red;'>化肥</p>",
+	   "GJZSL":"<p style='color:red;'>200</p>",
+	   "XSZSL":"<p style='color:red;'>150</p>",
+	   "KCZSL":"<p style='color:red;'>50</p>",
+	   "KCZDYCYL":"<p style='color:red;'>60</p>"
+  },{
+       "numbers":"1",
+	   "NZGYZ":"下各镇农资供应站",
+	   "NZMC":"农药",
+	   "GJZSL":"280",
+	   "XSZSL":"160",
+	   "KCZSL":"120",
+	   "KCZDYCYL":"80"
+  },{
+       "numbers":"1",
+	   "NZGYZ":"大战乡农资供应站",
+	   "NZMC":"农药",
+	   "GJZSL":"200",
+	   "XSZSL":"100",
+	   "KCZSL":"100",
+	   "KCZDYCYL":"60"
+  }]
+}  

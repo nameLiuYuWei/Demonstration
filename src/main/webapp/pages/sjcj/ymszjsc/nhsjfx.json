@@ -1,0 +1,107 @@
+
+{
+  "code": 0
+  ,"msg": ""
+  ,"count": 10
+  ,"data": [{
+       "numbers":"1",
+	   "XM":"吴志美",
+	   "ZZZWZL":"东魁杨梅",
+	   "ZZMJ":"200",
+	   "NZMC":"化肥",
+	   "LJGMSL":"600",
+	   "PJMMSYL":"3",
+	   "ZCMMSYL":"3",
+	   "SFYC":"否"
+  }, {
+       "numbers":"2",
+	   "XM":"<p style='color:red;'>吴宝福</p>",
+	   "ZZZWZL":"<p style='color:red;'>东魁杨梅</p>",
+	   "ZZMJ":"<p style='color:red;'>150</p>",
+	   "NZMC":"<p style='color:red;'>化肥</p>",
+	   "LJGMSL":"<p style='color:red;'>900</p>",
+	   "PJMMSYL":"<p style='color:red;'>6</p>",
+	   "ZCMMSYL":"<p style='color:red;'>3</p>",
+	   "SFYC":"<p style='color:red;'>是</p>"
+  },{
+       "numbers":"3",
+	   "XM":"陈娅萍",
+	   "ZZZWZL":"东魁杨梅",
+	   "ZZMJ":"130",
+	   "NZMC":"化肥",
+	   "LJGMSL":"390",
+	   "PJMMSYL":"3",
+	   "ZCMMSYL":"3",
+	   "SFYC":"否"
+  },{
+       "numbers":"4",
+	   "XM":"<p style='color:red;'>朱焕彩</p>",
+	   "ZZZWZL":"<p style='color:red;'>东魁杨梅</p>",
+	   "ZZMJ":"<p style='color:red;'>100</p>",
+	   "NZMC":"<p style='color:red;'>化肥</p>",
+	   "LJGMSL":"<p style='color:red;'>800</p>",
+	   "PJMMSYL":"<p style='color:red;'>8</p>",
+	   "ZCMMSYL":"<p style='color:red;'>3</p>",
+	   "SFYC":"<p style='color:red;'>是</p>"
+  },{
+       "numbers":"5",
+	   "XM":"吴卫勇",
+	   "ZZZWZL":"东魁杨梅",
+	   "ZZMJ":"60",
+	   "NZMC":"化肥",
+	   "LJGMSL":"180",
+	   "PJMMSYL":"3",
+	   "ZCMMSYL":"3",
+	   "SFYC":"否"
+  },{
+       "numbers":"6",
+	   "XM":"冯战敏",
+	   "ZZZWZL":"东魁杨梅",
+	   "ZZMJ":"50",
+	   "NZMC":"化肥",
+	   "LJGMSL":"150",
+	   "PJMMSYL":"3",
+	   "ZCMMSYL":"3",
+	   "SFYC":"否"
+  },{
+       "numbers":"7",
+	   "XM":"<p style='color:red;'>应苏爱</p>",
+	   "ZZZWZL":"<p style='color:red;'>东魁杨梅</p>",
+	   "ZZMJ":"<p style='color:red;'>40</p>",
+	   "NZMC":"<p style='color:red;'>化肥</p>",
+	   "LJGMSL":"<p style='color:red;'>400</p>",
+	   "PJMMSYL":"<p style='color:red;'>10</p>",
+	   "ZCMMSYL":"<p style='color:red;'>3</p>",
+	   "SFYC":"<p style='color:red;'>是</p>"
+  },{
+       "numbers":"8",
+	   "XM":"王中美",
+	   "ZZZWZL":"东魁杨梅",
+	   "ZZMJ":"40",
+	   "NZMC":"化肥",
+	   "LJGMSL":"120",
+	   "PJMMSYL":"3",
+	   "ZCMMSYL":"3",
+	   "SFYC":"否"
+  },{
+       "numbers":"9",
+	   "XM":"陈进荣",
+	   "ZZZWZL":"东魁杨梅",
+	   "ZZMJ":"30",
+	   "NZMC":"化肥",
+	   "LJGMSL":"90",
+	   "PJMMSYL":"3",
+	   "ZCMMSYL":"3",
+	   "SFYC":"否"
+  },{
+       "numbers":"10",
+	   "XM":"徐子连",
+	   "ZZZWZL":"东魁杨梅",
+	   "ZZMJ":"30",
+	   "NZMC":"化肥",
+	   "LJGMSL":"90",
+	   "PJMMSYL":"3",
+	   "ZCMMSYL":"3",
+	   "SFYC":"否"
+  }]
+}  

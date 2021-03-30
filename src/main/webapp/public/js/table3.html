@@ -1,0 +1,154 @@
+﻿<script script type="text/javascript" src="jquery.min.js"></script>
+<style>
+	.table-responsive {
+	    overflow: auto !important;
+	}
+	.table-th-css {
+	    background: #EFEFF4 !important;
+	    position: relative !important;
+	    text-align: center;
+	    top: 0;
+	}
+	.section-scroll{
+		height:417px;
+	}
+</style>
+
+<div class="table-responsive section-scroll" style="width:300px;">
+	<table class="table table-bordered">
+		<thead class="table-header">
+			<tr>
+                <th class="table-th-css">
+                    <div>部门</div>
+                </th>
+                <th class="table-th-css">
+                    <div>用户名称</div>
+                </th>
+                <th class="text-center table-th-css">
+                    <div>1月</div>
+                </th>
+                <th class="text-center table-th-css">
+                    <div>2月</div>
+                </th>
+                <th class="text-center table-th-css">
+                    <div>3月</div>
+                </th>
+                <th class="text-center table-th-css">
+                    <div>4月</div>
+                </th>
+                <th class="text-center table-th-css">
+                    <div>5月</div>
+                </th>
+                <th class="text-center table-th-css">
+                    <div>6月</div>
+                </th>
+                <th class="text-center table-th-css">
+                    <div>7月</div>
+                </th>
+                <th class="text-center table-th-css">
+                    <div>8月</div>
+                </th>
+                <th class="text-center table-th-css">
+                    <div>9月</div>
+                </th>
+                <th class="text-center table-th-css">
+                    <div>10月</div>
+                </th>
+                <th class="text-center table-th-css">
+                    <div>11月</div>
+                </th>
+                <th class="text-center table-th-css">
+                    <div>12月</div>
+                </th>
+                <th class="text-center table-th-css">
+                    <div>合计</div>
+                </th>
+			</tr>
+		</thead>
+		<tbody >
+			<tr class="text-center" >
+                        <td >
+                            多毛大叔爱萝莉
+                        </td>
+                        <td class="table-textWidth">
+                            多毛大叔爱萝莉
+                        </td>
+                        <td>
+                            多毛大叔爱萝莉
+                        </td>
+                        <td>
+                           多毛大叔爱萝莉
+                        </td>
+                        <td>
+                            多毛大叔爱萝莉
+                        </td>
+                        <td>
+                           多毛大叔爱萝莉
+                        </td>
+                        <td>
+                            多毛大叔爱萝莉
+                        </td>
+                        <td>
+                            多毛大叔爱萝莉
+                        </td>
+                        <td>
+                           多毛大叔爱萝莉
+                        </td>
+                        <td>
+                            多毛大叔爱萝莉
+                        </td>
+                        <td>
+                           多毛大叔爱萝莉
+                        </td>
+                        <td>
+                           多毛大叔爱萝莉
+                        </td>
+                        <td>
+                            多毛大叔爱萝莉
+                        </td>
+                        <td>
+                            多毛大叔爱萝莉
+                        </td>
+                        <td>
+                            多毛大叔爱萝莉
+                        </td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<script>
+var tableCont = $('.section-scroll tr th'); //获取th
+var tableCont_child = $('.section-scroll tr th div'); //获取th下边的div
+var tableScroll = $('.section-scroll'); //获取滚动条同级的class
+alert("1");
+        function scrollHandle() {
+            var scrollTop = tableScroll.scrollTop();
+            // 当滚动距离大于0时设置top及相应的样式
+            if (scrollTop > 0) {
+                tableCont.css({
+                    "top": scrollTop + 'px',
+                    "marginTop": "-1px",
+                    "padding": 0
+                });
+                tableCont_child.css({
+                    "borderTop": "1px solid gainsboro",
+                    "borderBottom": "1px solid gainsboro",
+                    "marginTop": "-1px",
+                    "padding": "8px"
+                })
+            } else {
+            // 当滚动距离小于0时设置top及相应的样式
+                tableCont.css({
+                    "top": scrollTop + 'px',
+                    "marginTop": "0",
+                });
+                tableCont_child.css({
+                    "border": "none",
+                    "marginTop": 0,
+                    "marginBottom": 0,
+                })
+            }
+        }
+tableScroll.on('scroll', scrollHandle);
+</script>

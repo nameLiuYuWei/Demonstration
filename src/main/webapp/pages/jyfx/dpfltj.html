@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>店铺分类统计</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../../public/css/font.css"/>
+    <link rel="stylesheet" href="../../public/layui/css/layui.css">
+</head>
+<body>
+
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-form layui-card-header" style="padding-top: 10px;padding-bottom: 10px;">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">日期</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input" id="test6" placeholder=" - ">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">品种</label>
+                    <div class="layui-input-inline">
+                        <select name="label">
+                            <option value="">请选择</option>
+                            <option value="东魁杨梅">东魁杨梅</option>
+                            <option value="荸荠杨梅">荸荠杨梅</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn layuiadmin-btn-list" lay-submit lay-filter="LAY-app-contlist-search">
+                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-card-body">
+            <table class="layui-hide" id="dataTable" lay-filter="dataTable"></table>
+        </div>
+    </div>
+</div>
+
+<script src="../../public/layui/layui.js"></script>
+<script>
+    layui.extend({
+        admin: '{/}../../public/js/admin'
+    });
+    layui.use(['table', 'jquery', 'form', 'admin', 'laydate'], function (table, $, form, admin, laydate) {
+        laydate.render({
+            elem: '#test6'
+            ,range: true
+        });
+
+        //监听搜索
+        form.on('submit(LAY-app-contlist-search)', function(data){
+
+            //执行重载
+            table.reload('dataTable', {
+                where: data.field
+            });
+        });
+
+        table.render({
+            elem: '#dataTable'
+            ,cols: [[
+                {field:'mc', title:'市场'}
+                ,{field:'pz', title:'品种'}
+                ,{field:'sl', title:'交易量（吨）'}
+                ,{field:'je', title:'交易金额（元）'}
+            ]]
+            ,page: true
+            , initSort: {
+                field: 'je'
+                ,type: 'desc'
+            }
+            , data: [
+                {
+                    "mc": "仙居县禾希商贸有限公司",
+                    "pz": "东魁杨梅",
+                    "sl": 33434,
+                    "je": 33434*30
+                },
+                {
+                    "mc": "仙居县陈仲恒水果专业合作社",
+                    "pz": "荸荠杨梅",
+                    "sl": 23422,
+                    "je": 23422*30
+                },
+                {
+                    "mc": "仙居县俊朗种植专业合作社",
+                    "pz": "荸荠杨梅",
+                    "sl": 23423,
+                    "je": 23423*30
+                },
+                {
+                    "mc": "仙居县凯瑞尔家居用品有限公司",
+                    "pz": "东魁杨梅",
+                    "sl": 56775,
+                    "je": 56775*30
+                },
+                {
+                    "mc": "仙居县忆中梅酒业有限公司",
+                    "pz": "东魁杨梅",
+                    "sl": 76456,
+                    "je": 76456*30
+                },
+                {
+                    "mc": "仙居县瑞吉商贸有限公司",
+                    "pz": "荸荠杨梅",
+                    "sl": 23424,
+                    "je": 23424*30
+                },
+                {
+                    "mc": "仙居县唯特工艺品厂",
+                    "pz": "东魁杨梅",
+                    "sl": 34534,
+                    "je": 34534*30
+                }]
+        });
+
+    });
+</script>
+</body>
+
+</html>

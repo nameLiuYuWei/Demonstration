@@ -1,0 +1,519 @@
+{
+	"status": 0,
+	"msg": "ok",
+	"data": [{
+				"id": 1,
+				"name": "数字驾驶舱",
+				"icon": "&#xe70b;",
+				"url": "",
+				"children": [{
+					"id": 11,
+					"name": "农户生产数据分析",
+					"icon": "&#xe70b;",
+					"url": "sjcj/ymszjsc/nhsjfx.html"
+				}, {
+					"id": 12,
+					"name": "供应站生产数据分析",
+					"icon": "&#xe70b;",
+					"url": "sjcj/ymszjsc/nzgyz.html"
+				}, {
+					"id": 13,
+					"name": "交易统计分析",
+					"icon": "&#xe70b;",
+					"url": "",
+					"children": [{
+						"id": 130,
+						"name": "交易统计",
+						"icon": "",
+						"url": "jyfx/jyfx.html"
+					}, {
+						"id": 131,
+						"name": "累计交易额",
+						"icon": "",
+						"url": "jyfx/ljjye.html"
+					}, {
+						"id": 132,
+						"name": "近1/7/30日交易额",
+						"icon": "",
+						"url": "jyfx/jye.html"
+					}, {
+						"id": 133,
+						"name": "交易额增长趋势",
+						"icon": "",
+						"url": "jyfx/jyezzqs.html"
+					}, {
+						"id": 134,
+						"name": "订单量增长趋势",
+						"icon": "",
+						"url": "jyfx/ddlzzqs.html"
+					}, {
+						"id": 135,
+						"name": "店铺销售排行榜",
+						"icon": "",
+						"url": "jyfx/dpxsphb.html"
+					}, {
+						"id": 136,
+						"name": "交易流动地图",
+						"icon": "",
+						"url": "jyfx/jylddt.html"
+					}, {
+						"id": 137,
+						"name": "交易公告板",
+						"icon": "",
+						"url": "jyfx/jyggb.html"
+					}, {
+						"id": 138,
+						"name": "累计店铺数量",
+						"icon": "",
+						"url": "jyfx/ljdpsl.html"
+					}, {
+						"id": 139,
+						"name": "店铺分类统计",
+						"icon": "",
+						"url": "jyfx/dpfltj.html"
+					}, {
+						"id": 139,
+						"name": "店铺增长趋势",
+						"icon": "",
+						"url": "jyfx/dpzzqs.html"
+					}, {
+						"id": 139,
+						"name": "店铺地图分布",
+						"icon": "",
+						"url": "jyfx/dpdtfb.html"
+					}]
+				}, {
+					"id": 14,
+					"name": "用户统计分析",
+					"icon": "&#xe70b;",
+					"url": "yhtjfx/yhtjfx.html"
+				}]
+			}, 
+					{"id": 2,
+					"name": "古树保护管理",
+					"icon": "&#xe70b;",
+					"url": "",
+					"children":[
+						
+						{
+							"id": 26,
+							"name": "古树信息维护",
+							"icon": "&#xe70b;",
+							"url": "",
+							"children": [{
+								"id": 261,
+								"name": "古树信息登记",
+								"url": "gsmm/gsmmdj.html"
+							},
+								{
+									"id": 262,
+									"name": "古树信息查询",
+									"url": "gsmm/gsmmlist.html"
+								}]
+						},
+						{
+							"id": 27,
+							"name": "古树养护管理",
+							"icon": "&#xe70b;",
+							"url": "",
+							"children": [{
+								"id": 271,
+								"name": "巡检登记",
+								"url": "gsmmcx/gsmmxc.html"
+							},
+								{
+									"id": 272,
+									"name": "生长记录",
+									"url": "gsmmcx/gsmmszjl.html"
+								},
+								{
+									"id": 273,
+									"name": "病虫害记录",
+									"url": "gsmmcx/gsmmbchjl.html"
+								},
+								{
+									"id": 274,
+									"name": "向专家提问",
+									"url": "gsmmcx/gsmmzjtw.html"
+								},
+								{
+									"id": 275,
+									"name": "古树养护查询",
+									"url": "gsmmcx/gsmmyh_cx.html"
+								}]
+						},
+						{
+							"id": 28,
+							"name": "人员管理模块",
+							"icon": "&#xe70b;",
+							"url": "",
+							"children": [{
+								"id": 281,
+								"name": "养护人员登记",
+								"url": "rygl/yhrydj.html"
+							},
+								{
+									"id": 282,
+									"name": "出勤记录",
+									"url": "rygl/yhrycqjl.html"
+								},
+								{
+									"id": 283,
+									"name": "养护记录",
+									"url": "rygl/yhryyhjl.html"
+								},
+								{
+									"id": 284,
+									"name": "人员管理查询",
+									"url": "rygl/rygl_list.html"
+								}]
+						},
+						{
+							"id": 29,
+							"name": "巡查管理模块",
+							"icon": "&#xe70b;",
+							"url": "",
+							"children": [{
+								"id": 291,
+								"name": "巡查登记",
+								"url": "gsmmcx/gsmmxj.html"
+							},
+								{
+									"id": 292,
+									"name": "巡查记录查询",
+									"url": "gsmmcx/gsmmxj_list.html"
+								}]
+						},
+						{
+								"id": 25,
+								"name": "数据统计展示模块",
+								"icon": "&#xe70b;",
+								"url": "",
+								"children": [{
+									"id": 251,
+									"name": "地图标记古树位置",
+									"url": "old_tree/positionQuery.html"
+								},
+								{
+									"id": 252,
+									"name": "古树统计分析",
+									"url": "old_tree/line.html"
+								},
+									{
+										"id": 253,
+										"name": "古树生长信息查看",
+										"url": "sjtjzs/gsszxx_cx.html"
+									},
+									{
+										"id": 254,
+										"name": "古树病虫害信息查看",
+										"url": "sjtjzs/gsbchxx_cx.html"
+									},
+									{
+										"id": 255,
+										"name": "古树养护信息查看",
+										"url": "sjtjzs/gsyhxx_cx.html"
+									}]
+							}
+					]
+				
+			}, {
+				"id": 3,
+				"name": "杨梅大数据平台",
+				"icon": "&#xe70b;",
+				"children": [{
+					"id": 31,
+					"name": "数据采集",
+					"icon": "&#xe70b;",
+					"children": [{
+						"id": 311,
+						"name": "采集任务配置监控",
+						"icon": "&#xe70b;",
+						"url": "sjcj/cjrwpzjk/cjrwjk.html"
+					},{
+						"id": 312,
+						"name": "数据库数据源维护",
+						"icon": "&#xe70b;",
+						"url": "sjcj/sjjh/sjksjywh.html"
+					},{
+						"id": 313,
+						"name": "文件数据源维护",
+						"icon": "&#xe70b;",
+						"url": "sjcj/sjjh/wjsjywh.html"
+					},{
+						"id": 314,
+						"name": "接口数据源维护",
+						"icon": "&#xe70b;",
+						"url": "sjcj/sjjh/jksjywh.html"
+					},{
+						"id": 315,
+						"name": "字段转换过滤",
+						"icon": "&#xe70b;",
+						"url": "sjcj/zdzhgl/zdzhgl.html"
+					},{
+						"id": 316,
+						"name": "数据交换服务配置",
+						"icon": "&#xe70b;",
+						"url": "sjcj/sjjh/sjjhfwpz.html"
+					},{
+						"id": 317,
+						"name": "实时监控",
+						"icon": "&#xe70b;",
+						"url": "sjcj/sjjh/ssjk.html"
+					},{
+						"id": 318,
+						"name": "日志管理",
+						"icon": "&#xe70b;",
+						"url": "sjcj/sjjh/rzgl.html"
+					},{
+						"id": 319,
+						"name": "数据网上填报",
+						"icon": "&#xe70b;",
+						"url": "sjcj/sjwstb/sjwstb.html"
+					},{
+						"id": 320,
+						"name": "数据导入加载",
+						"icon": "&#xe70b;",
+						"url": "sjcj/sjdrjz/sjdrjz.html"
+					},{
+						"id": 321,
+						"name": "数据库对接",
+						"icon": "&#xe70b;",
+						"url": "sjcj/sjkdj/sjkdj.html"
+					}]
+				}]
+			},{
+				"id": 4,
+				"name": "病虫害检测系统",
+				"icon": "&#xe70b;",
+				"url": "",
+				"children": [{
+					"id": 41,
+					"name": "病虫害预警",
+					"icon": "&#xe70b;",
+					"url": "",
+					"children": [{
+						"id": 411,
+						"name": "历史虫害数据分析",
+						"icon": "",
+						"url": "pestmonitor/ymchpages/lschsjfx.html"
+					},{
+						"id": 412,
+						"name": "虫害情况查询",
+						"icon": "",
+						"url": "pestmonitor/ymchpages/hcqkcx.html"
+					},{
+						"id": 413,
+						"name": "病虫害数据管理",
+						"icon": "",
+						"url": "pestmonitor/bchsjwh/bchsjwh_cx.html"
+					},{
+						"id": 414,
+						"name": "环境阈值管理",
+						"icon": "",
+						"url": "pestmonitor/hjyzgl/hjyzgl_cx.html"
+					},{
+						"id": 415,
+						"name": "未知病害上报",
+						"icon": "",
+						"url": "pestmonitor/wzbhsb/wzbhsb_cx.html"
+					},{
+						"id": 416,
+						"name": "虫害查询治病",
+						"icon": "",
+						"url": "pestmonitor/cxzb/cxzb_cx.html"
+					},{
+						"id": 417,
+						"name": "专家在线答疑",
+						"icon": "",
+						"url": "pestmonitor/zjzxdy/zjzxdy_cx.html"
+					}]
+				},
+				{
+					"id": 42,
+					"name": "虫情测报仪",
+					"icon": "&#xe70b;",
+					"url": "pestmonitor/cqcby/cqcbycx.html"
+					
+				},{
+					"id": 43,
+					"name": "病害高光谱诊断",
+					"icon": "&#xe70b;",
+					"url": "",
+					"children": [{
+						"id": 431,
+						"name": "光谱数据记录",
+						"icon": "",
+						"url": ""
+					},{
+						"id": 432,
+						"name": "分析结果展示",
+						"icon": "",
+						"url": ""
+					}]
+				}]
+			},{
+				"id": 5,
+				"name": "质量安全追溯系统",
+				"icon": "&#xe70b;",
+				"url": "",
+				"children": [{
+					"id": 511,
+					"name": "生产资料管理",
+					"icon": "",
+					"url": "sczlgl/sczlgl.html"
+				}, {
+					"id": 512,
+					"name": "投入品管理",
+					"icon": "",
+					"url": "trpgl/trpgl.html"
+				},{
+					"id": 513,
+					"name": "生产作业管理",
+					"icon": "",
+					"url": "",
+					"children": [{
+						"id": 5131,
+						"name": "生产人员管理",
+						"icon": "",
+						"url": "sczygl/scrygl.html"
+					}, {
+						"id": 5132,
+						"name": "播种管理",
+						"icon": "",
+						"url": "sczygl/bzgl.html"
+					}, {
+						"id": 5133,
+						"name": "施肥管理",
+						"icon": "",
+						"url": "sczygl/sfgl.html"
+					}, {
+						"id": 5134,
+						"name": "打药管理",
+						"icon": "",
+						"url": "sczygl/dygl.html"
+					}]
+				},{
+					"id": 514,
+					"name": "采收过程管理",
+					"icon": "",
+					"url": "",
+					"children": [{
+						"id": 5141,
+						"name": "采收登记",
+						"icon": "",
+						"url": "csgcgl/csdj.html"
+					}, {
+						"id": 5142,
+						"name": "产品批次",
+						"icon": "",
+						"url": "csgcgl/cppccx.html"
+					}, {
+						"id": 5143,
+						"name": "标识管理",
+						"icon": "",
+						"url": "csgcgl/bsgl.html"
+					}]
+				}, {
+					"id": 515,
+					"name": "销售过程管理",
+					"icon": "",
+					"url": "",
+					"children": [{
+						"id": 5151,
+						"name": "销售管理",
+						"icon": "",
+						"url": "xsgcgl/xsgl.html"
+					}, {
+						"id": 5152,
+						"name": "订单管理",
+						"icon": "",
+						"url": "xsgcgl/ddgl.html"
+					}]
+				}]
+			},{
+				"id": 6,
+				"name": "行情系统",
+				"icon": "&#xe70b;",
+				"url": "",
+				"children": [{
+					"id": 61,
+					"name": "行情信息",
+					"icon": "&#xe6ce;",
+					"url": "",
+					"children": [{
+						"id": 611,
+						"name": "行情报价",
+						"icon": "",
+						"url": "hqxx/hqbj.html"
+					}, {
+						"id": 612,
+						"name": "报价审核",
+						"icon": "",
+						"url": "hqxx/bjsh.html"
+					}, {
+						"id": 613,
+						"name": "全国价格",
+						"icon": "",
+						"url": "hqxx/qgjg.html"
+					}, {
+						"id": 614,
+						"name": "各地行情",
+						"icon": "",
+						"url": "hqxx/gdhq.html"
+					}, {
+						"id": 615,
+						"name": "价格排行",
+						"icon": "",
+						"url": "hqxx/jgph.html"
+					}, {
+						"id": 616,
+						"name": "行情趋势图",
+						"icon": "",
+						"url": "hqxx/hqqs.html"
+					}]
+				},{
+					"id": 62,
+					"name": "价格指数",
+					"icon": "&#xe6ce;",
+					"url": "",
+					"children": [{
+						"id": 621,
+						"name": "算法模型",
+						"icon": "",
+						"url": "jgzs/sfmx.html"
+					}, {
+						"id": 622,
+						"name": "指数计算",
+						"icon": "",
+						"url": "jgzs/zsjs.html"
+					}, {
+						"id": 623,
+						"name": "指数展示",
+						"icon": "",
+						"url": "jgzs/zszs.html"
+					}, {
+						"id": 624,
+						"name": "指数发布",
+						"icon": "",
+						"url": "jgzs/zsfb.html"
+					}, {
+						"id": 625,
+						"name": "报告编制",
+						"icon": "",
+						"url": "jgzs/bgbz.html"
+					}, {
+						"id": 626,
+						"name": "报告发布",
+						"icon": "",
+						"url": "jgzs/bgfb.html"
+					}, {
+						"id": 627,
+						"name": "报告展示",
+						"icon": "",
+						"url": "jgzs/bgzs.html"
+					}]
+				}]
+			}
+	]
+}

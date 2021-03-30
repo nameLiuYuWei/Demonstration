@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"  xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/util 
+	http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<context:component-scan base-package="com.zk" />
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	
+	 <util:map id="zbMap" map-class="java.util.HashMap">
+        <entry key="DZPJ002" value="开具" />
+        <entry key="DZPJ003" value="报销" />
+        <entry key="DZPJ004" value="归档" />
+    </util:map>
+    
+     <util:map id="fpMap" map-class="java.util.HashMap">
+        <entry key="JDC_ESC" value="机动车二手发票" />
+        <entry key="ALL" value="全部" />
+        <entry key="TP" value="通用机打发票" />
+        <entry key="ZZS_PP" value="增值税普通发票" />
+            <entry key="ZZS_ZP" value="增值税专用发票" />
+    </util:map>
+
+
+<import resource="datasource.xml"/>
+</beans>  

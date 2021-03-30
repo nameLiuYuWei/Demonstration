@@ -1,0 +1,89 @@
+{
+	"status": 0,
+	"msg": "ok",
+	"data": [{
+				"id": 6,
+				"name": "行情系统",
+				"icon": "&#xe70b;",
+				"url": "",
+				"children": [{
+					"id": 61,
+					"name": "行情信息",
+					"icon": "&#xe6ce;",
+					"url": "",
+					"children": [{
+						"id": 611,
+						"name": "行情报价",
+						"icon": "",
+						"url": "hqxx/hqbj.html"
+					}, {
+						"id": 612,
+						"name": "报价审核",
+						"icon": "",
+						"url": "hqxx/bjsh.html"
+					}, {
+						"id": 613,
+						"name": "全国价格",
+						"icon": "",
+						"url": "hqxx/qgjg.html"
+					}, {
+						"id": 614,
+						"name": "各地行情",
+						"icon": "",
+						"url": "hqxx/gdhq.html"
+					}, {
+						"id": 615,
+						"name": "价格排行",
+						"icon": "",
+						"url": "hqxx/jgph.html"
+					}, {
+						"id": 616,
+						"name": "行情趋势图",
+						"icon": "",
+						"url": "hqxx/hqqs.html"
+					}]
+				},{
+					"id": 62,
+					"name": "价格指数",
+					"icon": "&#xe6ce;",
+					"url": "",
+					"children": [{
+						"id": 621,
+						"name": "算法模型",
+						"icon": "",
+						"url": "jgzs/sfmx.html"
+					}, {
+						"id": 622,
+						"name": "指数计算",
+						"icon": "",
+						"url": "jgzs/zsjs.html"
+					}, {
+						"id": 623,
+						"name": "指数展示",
+						"icon": "",
+						"url": "jgzs/zszs.html"
+					}, {
+						"id": 624,
+						"name": "指数发布",
+						"icon": "",
+						"url": "jgzs/zsfb.html"
+					}, {
+						"id": 625,
+						"name": "报告编制",
+						"icon": "",
+						"url": "jgzs/bgbz.html"
+					}, {
+						"id": 626,
+						"name": "报告发布",
+						"icon": "",
+						"url": "jgzs/bgfb.html"
+					}, {
+						"id": 627,
+						"name": "报告展示",
+						"icon": "",
+						"url": "jgzs/bgzs.html"
+					}]
+				}]
+			}
+	]
+}

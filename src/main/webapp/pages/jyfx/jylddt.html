@@ -1,0 +1,304 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>交易额增长趋势</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../../public/css/font.css"/>
+    <link rel="stylesheet" href="../../public/layui/css/layui.css">
+    <link rel="stylesheet" href="../../public/css/weadmin.css">
+
+</head>
+<body>
+
+<div id="main" style="width:100%;height:600px;"></div>
+
+<script src="../../public/echarts/echarts.js"></script>
+<script src="../../public/js/jquery.min.js"></script>
+
+<script>
+
+    var myChart = echarts.init(document.getElementById('main'));
+    var imgUrl = "";
+
+    var uploadedDataURL = "jylddt.json";
+    //地理位置信息
+    var geoCoordMap = {
+        "横溪镇": [120.48594270806781,28.743414705985856],
+        "白塔镇": [120.60735372821208,28.75685891745399],
+        "田市镇": [120.64105168313566,28.78134013790418],
+        "官路镇": [120.66882630135893,28.83474516406105],
+        "下各镇": [120.8619221910063,28.86446933207203],
+        "朱溪镇": [120.84454581837979,28.73162100141002],
+        '埠头镇': [120.53075674452094,28.758083341903593],
+        '上张乡': [120.73818518840582,28.67004110976343],
+        '安岭乡': [120.3595087228356,28.566189640307353],
+        "溪港乡": [120.40650267726907,28.576193611995183],
+        "湫山乡": [120.42757000757376,28.701002561007495],
+        '皤滩乡': [120.54780793055293,28.743809548137413],
+        '淡竹乡': [120.58210927728737,28.675844427379936],
+        '步路乡': [120.72308143888824,28.802875879486006],
+        '广度乡': [120.75471113520634,28.954058764904442],
+        '大战乡': [120.82440149698628,28.82511992472225],
+        '双庙乡': [120.85961624076296,28.79579202101374],
+        '东溪村': [120.774288,28.887994],
+        '赵岙村': [120.749992,28.823576],
+        '南峰街道': [120.749992,28.823576],
+        '清口园村': [120.726889,28.819819],
+        '安洲街道': [120.731557,28.866199]
+    };
+
+
+    var geoCoordData = [{
+            name: '横溪镇',
+            value: "横溪镇坎头市场",
+            info: {
+                img: imgUrl
+            }
+        },
+        {
+            name: '白塔镇',
+            value: "白塔镇前王市场",
+            info: {
+                img: imgUrl
+            }
+        },
+        {
+            name: '东溪村',
+            value: "桐桥市场",
+            info: {
+                img: imgUrl
+            }
+        },
+        {
+            name: '赵岙村',
+            value: "赵岙市场",
+            info: {
+                img: imgUrl
+            }
+        },
+        {
+            name: '清口园村',
+            value: "清口园市场",
+            info: {
+                img: imgUrl
+            }
+        },
+        {
+            name: '埠头镇',
+            value: "埠头镇大庄市场",
+            info: {
+                img: imgUrl
+            }
+        },
+        {
+            name: '安洲街道',
+            value: "安州街道岭脚市场",
+            info: {
+                img: imgUrl
+            }
+        },
+        {
+            name: '步路乡',
+            value: "步路乡西炉市场",
+            info: {
+                img: imgUrl
+            }
+        }
+    ];
+    var convertData = function(data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var geoCoord = geoCoordMap[data[i].name];
+            if (geoCoord) {
+                res.push({
+                    name: data[i].name,
+                    value: geoCoord.concat(data[i].value),
+                    info: data[i].info || {}
+                });
+            }
+        }
+        return res;
+    };
+    var option = {
+        backgroundColor: '#020933',
+        title: {
+            text: '仙居县地图',
+            top: 5,
+            subtext: '',
+            sublink: '',
+            left: 'center',
+            textStyle: {
+                color: '#ccc'
+            }
+        },
+        tooltip: {
+            trigger: 'item',
+            triggerOn: 'click',
+            showDelay: 0, //浮层显示的延迟
+            transitionDuration: 0.2, // 提示框浮层的移动动画过渡时间
+            enterable: true,
+            formatter: function(params) {
+                console.log(params)
+
+            },
+            // position: [10, 10],
+            backgroundColor: "#fff"
+        },
+        visualMap: { //图例值控制
+            min: 0,
+            max: 100000,
+            calculable: true,
+            show: true,
+            color: ['#f44336', '#fc9700', '#ffde00', '#ffde00', '#00eaff'],
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        //地理坐标
+        geo: {
+            map: 'tjbh',
+            type: "map",
+            aspectScale: 0.75, //长宽比
+            zoom: 1.1,
+            roam: false,
+            itemStyle: {
+                normal: {
+                    areaColor: '#013C62',
+                    shadowColor: '#182f68',
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 25,
+                },
+                emphasis: {
+                    areaColor: '#2AB8FF',
+                    borderWidth: 0,
+                    color: 'green',
+                    label: {
+                        show: false
+                    }
+                }
+            }
+        },
+        series: [{
+            map: 'tjbh', //使用
+            type: 'map',
+            label: {
+                normal: {
+                    show: true,
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                emphasis: {
+                    textStyle: {
+                        color: '#fff'
+                    }
+                }
+            },
+
+            itemStyle: {
+                normal: {
+                    borderColor: '#2ab8ff',
+                    borderWidth: 1.5,
+                    areaColor: '#12235c'
+                },
+                emphasis: {
+                    areaColor: '#2AB8FF',
+                    borderWidth: 0,
+                    color: 'green'
+                }
+            },
+            zoom: 1.1,
+            roam: true,
+
+        },
+
+
+            //标记 图形 原点 scatter点 effectScatter涟漪特效
+            {
+
+                type: 'scatter',
+                coordinateSystem: 'geo',
+                symbolSize: 5,
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        position: 'right',
+                        show: true
+                    },
+                    emphasis: {
+                        show: true
+                    }
+                },
+                hoverAnimation: true,
+                itemStyle: {
+                    normal: {
+                        color: '#fff'
+                    }
+                },
+                zlevel: 1,
+                data: convertData(geoCoordData)
+            },
+            //标记图形 大头针
+            {
+                type: 'scatter',
+                coordinateSystem: 'geo',
+                symbol: 'pin',
+                symbolSize: [70, 70],
+                label: {
+                    normal: {
+                        show: true,
+                        textStyle: {
+                            color: 'red',
+                            fontSize: 12,
+                        },
+                        formatter(value) {
+                            return value.data.value[2]
+                        }
+                    }
+                },
+                hoverAnimation: true,
+                itemStyle: {
+                    normal: {
+                        color: '#D8BC37', //标志颜色
+                        // shadowBlur: 10,
+                        // shadowColor: '#333'
+                    }
+                },
+                zlevel: 1,
+                data: convertData(geoCoordData)
+            }
+        ]
+    };
+    var lookVideoGo = function(name) {
+        console.log(name)
+    }
+    var getData = function() {
+        $.get(uploadedDataURL, function(geojson) {
+            echarts.registerMap('tjbh', geojson);
+            myChart.setOption(option);
+        })
+    }
+
+    getData()
+
+    myChart.on('georoam', function(params) {
+        var option = myChart.getOption(); //获得option对象
+        if (params.zoom != null && params.zoom != undefined) { //捕捉到缩放时
+            option.geo[0].zoom = option.series[0].zoom; //下层geo的缩放等级跟着上层的geo一起改变
+            option.geo[0].center = option.series[0].center; //下层的geo的中心位置随着上层geo一起改变
+        } else { //捕捉到拖曳时
+            option.geo[0].center = option.series[0].center; //下层的geo的中心位置随着上层geo一起改变
+        }
+        myChart.dispatchAction({
+            type: 'restore'
+        })
+        myChart.setOption(option); //设置option
+    });
+
+</script>
+</body>
+</html>

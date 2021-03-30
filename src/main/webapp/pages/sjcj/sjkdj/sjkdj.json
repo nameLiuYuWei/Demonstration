@@ -1,0 +1,109 @@
+
+{
+  "code": 0,
+   "msg": "",
+   "count": 12,
+   "data": [
+   {
+       "numbers":"1",
+	   "SJKM":"土地数据库",
+	   "SJKDZ":"192.100.160.31",
+	   "ZH":"admin",
+	   "MM":"admin123456",
+	   "SJKCP":"Oracle",
+	   "MRSJKLJS":"50",
+	   "ZGSJKLJS":"150"
+	   
+  },{
+       "numbers":"2",
+	   "SJKM":"农事数据库",
+	   "SJKDZ":"192.100.160.32",
+	   "ZH":"admin",
+	   "MM":"admin123456",
+	   "SJKCP":"Mysql",
+	   "MRSJKLJS":"50",
+	   "ZGSJKLJS":"200"
+	   
+  },{
+       "numbers":"3",
+	   "SJKM":"采收数据库",
+	   "SJKDZ":"192.100.160.33",
+	   "ZH":"admin",
+	   "MM":"admin123456",
+	   "SJKCP":"Oracle",
+	   "MRSJKLJS":"50",
+	   "ZGSJKLJS":"150"
+	   
+  },{
+       "numbers":"4",
+	   "SJKM":"病虫害数据库",
+	   "SJKDZ":"192.100.160.33",
+	   "ZH":"admin",
+	   "MM":"admin123456",
+	   "SJKCP":"Mysql",
+	   "MRSJKLJS":"50",
+	   "ZGSJKLJS":"200"
+	   
+  },{
+       "numbers":"5",
+	   "SJKM":"投入品数据库",
+	   "SJKDZ":"192.100.160.35",
+	   "ZH":"admin",
+	   "MM":"admin123456",
+	   "SJKCP":"Oracle",
+	   "MRSJKLJS":"50",
+	   "ZGSJKLJS":"200"
+	   
+  },{
+       "numbers":"6",
+	   "SJKM":"设备租赁数据库",
+	   "SJKDZ":"192.100.160.36",
+	   "ZH":"admin",
+	   "MM":"admin123456",
+	   "SJKCP":"Oracle",
+	   "MRSJKLJS":"50",
+	   "ZGSJKLJS":"150"
+	   
+  },{
+       "numbers":"7",
+	   "SJKM":"生产服务数据库",
+	   "SJKDZ":"192.100.160.37",
+	   "ZH":"admin",
+	   "MM":"admin123456",
+	   "SJKCP":"Mysql",
+	   "MRSJKLJS":"50",
+	   "ZGSJKLJS":"200"
+	   
+  },{
+       "numbers":"8",
+	   "SJKM":"交易数据库",
+	   "SJKDZ":"192.100.160.38",
+	   "ZH":"admin",
+	   "MM":"admin123456",
+	   "SJKCP":"DB2",
+	   "MRSJKLJS":"50",
+	   "ZGSJKLJS":"150"
+	   
+  },{
+       "numbers":"9",
+	   "SJKM":"仓储数据库",
+	   "SJKDZ":"192.100.160.39",
+	   "ZH":"admin",
+	   "MM":"admin123456",
+	   "SJKCP":"Oracle",
+	   "MRSJKLJS":"50",
+	   "ZGSJKLJS":"200"
+	   
+  },{
+       "numbers":"10",
+	   "SJKM":"流数据库",
+	   "SJKDZ":"192.100.160.40",
+	   "ZH":"admin",
+	   "MM":"admin123456",
+	   "SJKCP":"DB2",
+	   "MRSJKLJS":"50",
+	   "ZGSJKLJS":"150"
+	   
+  }
+  ]
+}  

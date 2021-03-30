@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>报告展示</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../../public/css/font.css"/>
+    <link rel="stylesheet" href="../../public/layui/css/layui.css">
+</head>
+<body>
+
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-form layui-card-header" style="padding-top: 10px;padding-bottom: 10px;">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">发布日期</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input" id="test6" placeholder=" - ">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">杨梅品种</label>
+                    <div class="layui-input-inline">
+                        <select name="label">
+                            <option value="">请选择</option>
+                            <option value="东魁杨梅">东魁杨梅</option>
+                            <option value="荸荠杨梅">荸荠杨梅</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn layuiadmin-btn-list" lay-submit lay-filter="LAY-app-contlist-search">
+                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-card-body">
+            <table class="layui-hide" id="dataTable" lay-filter="dataTable"></table>
+            <script type="text/html" id="czBar">
+                <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="sh">报告</a>
+            </script>
+        </div>
+    </div>
+</div>
+
+<script src="../../public/layui/layui.js"></script>
+<script>
+    layui.extend({
+        admin: '{/}../../public/js/admin'
+    });
+    layui.use(['table', 'jquery', 'form', 'admin', 'laydate'], function (table, $, form, admin, laydate) {
+        laydate.render({
+            elem: '#test6'
+            ,range: true
+        });
+
+        //监听搜索
+        form.on('submit(LAY-app-contlist-search)', function(data){
+            //执行重载
+            table.reload('dataTable', {
+                where: data.field
+            });
+        });
+
+        table.render({
+            elem: '#dataTable'
+            ,page: true
+            ,cols: [[
+                {field:'pz', title:'品种'}
+                ,{field:'fbnr', title:'发布内容'}
+                ,{field:'fbr', title:'发布人'}
+                ,{field:'rq', title:'发布日期'}
+                ,{fixed: 'right', title:'报告', toolbar: '#czBar'}
+            ]]
+            , data: [
+                {
+                    "pz": "东魁杨梅",
+                    "fbnr": "仙居杨梅价格指数",
+                    "fbr": "王金福",
+                    "rq": "2021-03-05"
+                },{
+                    "pz": "东魁杨梅",
+                    "fbnr": "仙居杨梅价格指数",
+                    "fbr": "王金福",
+                    "rq": "2021-03-04"
+                },{
+                    "pz": "东魁杨梅",
+                    "fbnr": "仙居杨梅价格指数",
+                    "fbr": "王金福",
+                    "rq": "2021-03-03"
+                },{
+                    "pz": "东魁杨梅",
+                    "fbnr": "仙居杨梅价格指数",
+                    "fbr": "王金福",
+                    "rq": "2021-03-02"
+                },{
+                    "pz": "东魁杨梅",
+                    "fbnr": "仙居杨梅价格指数",
+                    "fbr": "王金福",
+                    "rq": "2021-03-01"
+                }]
+        });
+
+        table.on('tool(dataTable)', function(obj){
+            if(obj.event === 'sh'){
+                top.layer.open({
+                    type: 2,
+                    area: ['1100px', '650px'],
+                    title: "指数报告",
+                    content: 'jgzs/bgbz.html',
+                    shadeClose: true
+                });
+            }
+        });
+
+    });
+</script>
+</body>
+
+</html>

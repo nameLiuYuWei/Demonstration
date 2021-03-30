@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>虫情监控调度</title>
+    <style>
+        html,body{
+            background-image: linear-gradient(#D4EBFF, #F4F8FB);
+            height:100%;
+        }
+        .wrap_map{
+            position: relative;
+            margin:0 auto;
+            width:1200px;
+            height:100%;
+        }
+        .map_tips{
+            position: absolute;
+            right:80px;
+            bottom:50px;
+        }
+        .map_tips .tips_scroll{
+            width:155px;
+            height:13px;
+            border-radius:7px;
+            background-image: linear-gradient(to right,#FF0000, #FFD800,#55e12f,#2BE145,#65e96a,#BBF087);
+        }
+        .map_tips .tips_text{
+            display: flex;
+            color:#545454;
+            font-size:12px;
+            margin-top:15px;
+        }
+        .tips_text>div{
+            flex-grow: 1;
+        }
+        .tips_text>div:nth-of-type(2){
+            flex-grow:2;
+            text-align: center;
+        }
+        .tips_text>div:last-child{
+            text-align: right;
+        }
+        #container {
+            width:100%;
+            height:100%;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap_map">
+    <div id="container"></div>
+    <div class="map_tips">
+        <div class="tips_scroll"></div>
+        <div class="tips_text">
+            <div>100000</div>
+            <div>50000</div>
+            <div>0</div>
+        </div>
+    </div>
+</div>
+<script src="https://webapi.amap.com/maps?v=1.4.15&key=080a44084d27f3855d9630d6e86edd91&plugin=AMap.DistrictSearch,AMap.Heatmap"></script>
+<script type="text/javascript" src="./cqjkdd_gd.js?v=1.0.1"></script>
+<script>
+    var map = new AMap.Map('container', {
+        zoom: 10.5,
+        center:[120.613238,28.726062],
+        pitch: 0,
+        viewMode: '3D',
+        features: ['bg', 'point'],
+        mapStyle: "amap://styles/blue"
+    });
+    new AMap.DistrictSearch({
+        extensions:'all',
+        subdistrict:3,
+        level: 'street'
+    }).search('仙居县',function(status,result){
+        // 外多边形坐标数组和内多边形坐标数组
+        var outer = [
+            new AMap.LngLat(-360,90,true),
+            new AMap.LngLat(-360,-90,true),
+            new AMap.LngLat(360,-90,true),
+            new AMap.LngLat(360,90,true)
+        ]; // 使得遮盖填充反向
+        var holes = result.districtList[0].boundaries; // 得到该区域的边界坐标集合
+
+        var pathArray = [
+            outer
+        ];
+        pathArray.push.apply(pathArray,holes);
+        var polygon = new AMap.Polygon( {
+            pathL:pathArray,
+            //线条颜色，使用16进制颜色代码赋值。默认值为#006600
+            strokeColor: '#fff',
+            strokeWeight: 1,
+            fillColor: '#323449',
+            fillOpacity: 1,
+            strokeStyle:'dashed',
+            color: "#fff",
+            strokeDasharray:[2,2]
+        });
+        polygon.setPath(pathArray);
+        map.add(polygon);
+    });
+    //设置热力图
+    var heatmap = new AMap.Heatmap(map, {
+        radius: 60, //给定半径
+        opacity: [0, 0.8],
+        gradient:{
+            0: '#BBF087',
+            0.5: '#2BE145',
+            0.75: '#FFD800',
+            1.0: '#FF0000'
+        }
+    });
+    heatmap.setDataSet({
+        data: heatmapData,  //对应数据
+        max: 200  //设置景区人流量最大值
+    });
+    map.add(heatmap)
+</script>
+</body>
+</html>

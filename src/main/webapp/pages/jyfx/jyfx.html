@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>交易统计分析</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../../public/css/font.css"/>
+    <link rel="stylesheet" href="../../public/layui/css/layui.css">
+
+    <style type="text/css">
+        .layadmin-backlog .layadmin-backlog-body {
+            display: block;
+            padding: 10px 15px;
+            color: #999;
+            border-radius: 2px;
+            transition: all .3s;
+            -webkit-transition: all .3s
+        }
+
+        .layadmin-backlog-body li {
+            padding: 5px;
+        }
+
+        .layadmin-backlog-body h3 {
+            font-style: normal;
+            padding-bottom: 10px;
+            font-size: 15px
+        }
+
+        .layadmin-backlog-body p {
+            font-style: normal;
+            font-size: 17px;
+            font-weight: 300;
+            color: #009688
+        }
+
+    </style>
+</head>
+
+<body class="layui-col-space15" style="padding: 20px; background-color: #F2F2F2;">
+<div class="layui-col-md4">
+    <div class="layui-card">
+        <div class="layui-card-header">统计分析</div>
+        <div class="layui-card-body layadmin-backlog" style="height: 200px;">
+                    <ul class="layui-row layadmin-backlog-body">
+                        <li class="layui-col-xs4">
+                            <h3>总产量</h3>
+                            <p>9.5万吨</p>
+                        </li>
+                        <li class="layui-col-xs4">
+                            <h3>顺丰快递</h3>
+                            <p>170万件</p>
+                        </li>
+                        <li class="layui-col-xs4">
+                            <h3>营收</h3>
+                            <p>7300万元</p>
+                        </li>
+                        <li class="layui-col-xs4">
+                            <h3>总产值</h3>
+                            <p>7.2亿元</p>
+                        </li>
+                        <li class="layui-col-xs4">
+                            <h3>邮政速递</h3>
+                            <p>58万件</p>
+                        </li>
+                        <li class="layui-col-xs4">
+                            <h3>营收</h3>
+                            <p>1566万元</p>
+                        </li>
+                    </ul>
+        </div>
+    </div>
+</div>
+<div class="layui-col-md4">
+    <div class="layui-card">
+        <div class="layui-card-header">累计交易额</div>
+        <div class="layui-card-body">
+            <div id="ljjye" style="width: 100%;height:200px;"></div>
+        </div>
+    </div>
+</div>
+<div class="layui-col-md4">
+    <div class="layui-card">
+        <div class="layui-card-header">交易额增长趋势</div>
+        <div class="layui-card-body">
+            <div id="jyezzqs" style="width: 100%;height:200px;"></div>
+        </div>
+    </div>
+</div>
+<div class="layui-col-md8">
+    <div class="layui-card">
+        <div class="layui-card-header">店铺分类统计</div>
+        <div class="layui-card-body" style="height:200px;">
+            <table class="layui-table" id="dpfltj" lay-filter="dpfltj" lay-size="sm" lay-data="{size:'sm'}"></table>
+        </div>
+    </div>
+</div>
+<div class="layui-col-md4">
+    <div class="layui-card">
+        <div class="layui-card-header">店铺增长趋势</div>
+        <div class="layui-card-body">
+            <div id="dpzzqs" style="width: 100%;height:200px;"></div>
+        </div>
+    </div>
+</div>
+<div class="layui-col-md4">
+    <div class="layui-card">
+        <div class="layui-card-header">今日、近7天、近30天交易额</div>
+        <div class="layui-card-body">
+            <div id="jye" style="width: 100%;height:200px;"></div>
+        </div>
+    </div>
+</div>
+<div class="layui-col-md4">
+    <div class="layui-card">
+        <div class="layui-card-header">订单量增长趋势</div>
+        <div class="layui-card-body">
+            <div id="ddlzzqs" style="width: 100%;height:200px;"></div>
+        </div>
+    </div>
+</div>
+<div class="layui-col-md4">
+    <div class="layui-card">
+        <div class="layui-card-header">累计店铺数量</div>
+        <div class="layui-card-body">
+            <div id="ljdpsl" style="width: 100%;height:200px;"></div>
+        </div>
+    </div>
+</div>
+<div class="layui-col-md8">
+    <div class="layui-card">
+        <div class="layui-card-header">店铺地图分布</div>
+        <div class="layui-card-body" style="height:200px;">
+            <div id="dpdtfb" style="width:100%;height:200px;"></div>
+        </div>
+    </div>
+</div>
+<div class="layui-col-md4">
+    <div class="layui-card">
+        <div class="layui-card-header">店铺销售排行榜</div>
+        <div class="layui-card-body" style="height:200px;">
+            <table class="layui-table" id="dpxsphb" lay-filter="dpxsphb" lay-size="sm" lay-data="{size:'sm'}"></table>
+        </div>
+    </div>
+</div>
+<script src="../../public/layui/layui.js" type="text/javascript"></script>
+<script src="../../public/echarts/echarts.js"></script>
+<script>
+    layui.extend({
+        admin: '{/}../../public/js/admin'
+    });
+    layui.use(['jquery', 'admin', 'table'], function ($, admin, table) {
+
+        // 基于准备好的dom，初始化echarts实例
+        var ljjye = echarts.init(document.getElementById('ljjye'));
+
+        // 指定图表的配置项和数据
+        var ljjye_option =  {
+            legend: {},
+            tooltip: {},
+            dataset: {
+                source: [
+                    ['product', '交易量（吨）', '总金额（万元）'],
+                    ['2018', 45180, 45180*60*1000/10000],
+                    ['2019', 52180, 52180*60*1000/10000],
+                    ['2020', 66180, 66180*60*1000/10000],
+                    ['2021', 5180, 5180*60*1000/10000]
+                ]
+            },
+            grid: {
+                left: '0%',
+                right: '0%',
+                bottom: '0%',
+                containLabel: true
+            },
+            xAxis: {type: 'category'},
+            yAxis: {},
+            series: [
+                {type: 'bar',
+                    label: {
+                        show: true,
+                        position: 'top'
+                    },
+                    itemStyle: {
+                        color: 'rgb(124, 205, 124)'
+                    }},
+                {type: 'bar',
+                    label: {
+                        show: true,
+                        position: 'top'
+                    },
+                    itemStyle: {
+                        color: 'rgb(100, 149, 237)'
+                    }}
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        ljjye.setOption(ljjye_option);
+
+        // 基于准备好的dom，初始化echarts实例
+        var jye = echarts.init(document.getElementById('jye'));
+
+        // 指定图表的配置项和数据
+        var jye_option =  {
+            title: {
+                text: ''
+            },
+            legend: {},
+            tooltip: {},
+            dataset: {
+                source: [
+                    ['product', '交易量（吨）', '总金额（万元）'],
+                    ['今天', 2232, 2232*60*1000/10000],
+                    ['近7天', 3466, 3466*60*1000/10000],
+                    ['近30天', 5245, 5245*60*1000/10000]
+                ]
+            },
+            grid: {
+                left: '0%',
+                right: '0%',
+                bottom: '0%',
+                containLabel: true
+            },
+            xAxis: {type: 'category'},
+            yAxis: {},
+            series: [
+                {type: 'bar',
+                    label: {
+                        show: true,
+                        position: 'top'
+                    },
+                    itemStyle: {
+                        color: 'rgb(124, 205, 124)'
+                    }},
+                {type: 'bar',
+                    label: {
+                        show: true,
+                        position: 'top'
+                    },
+                    itemStyle: {
+                        color: 'rgb(100, 149, 237)'
+                    }}
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        jye.setOption(jye_option);
+
+
+        // 基于准备好的dom，初始化echarts实例
+        var jyezzqs = echarts.init(document.getElementById('jyezzqs'));
+
+        // 指定图表的配置项和数据
+        var jyezzqs_option = {
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['交易量（吨）', '交易额（万元）']
+            },
+            grid: {
+                left: '0%',
+                right: '0%',
+                bottom: '0%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['06-01', '06-02', '06-03', '06-04', '06-05', '06-06', '06-07', '06-08', '06-09', '06-10', '06-11', '06-12', '06-13', '06-14', '06-15', '06-16', '06-17', '06-18', '06-19', '06-20', '06-21', '06-22', '06-23', '06-24', '06-25', '06-26', '06-27', '06-28', '06-29', '06-20']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name: '交易量（吨）',
+                    type: 'line',
+                    stack: '总量',
+                    areaStyle: {
+                        color: 'rgb(100, 149, 237)'
+                    },
+                    itemStyle: {
+                        color: 'rgb(100, 149, 237)'
+                    },
+                    symbol: 'none',
+                    label: {
+                        show: true,
+                        position: 'top'
+                    },
+                    data: [52, 92, 128, 137, 169, 173, 190, 231, 257, 269, 280, 301, 337, 356, 379, 391, 489, 571, 671, 759, 821, 890, 971, 1021, 1135, 1234, 1256, 1389, 1462, 1501]                },
+                {
+                    name: '交易额（万元）',
+                    type: 'line',
+                    stack: '总量',
+                    areaStyle: {
+                        color: 'rgb(124, 205, 124)'
+                    },
+                    itemStyle: {
+                        color: 'rgb(124, 205, 124)'
+                    },
+                    symbol: 'none',
+                    label: {
+                        show: true,
+                        position: 'top'
+                    },
+                    data: [52*60*1000/10000, 92*60*1000/10000, 128*60*1000/10000, 137*60*1000/10000, 169*60*1000/10000, 173*60*1000/10000, 190*60*1000/10000, 231*60*1000/10000, 257*60*1000/10000, 269*60*1000/10000, 280*60*1000/10000, 301*60*1000/10000, 337*60*1000/10000, 356*60*1000/10000, 379*60*1000/10000, 391*60*1000/10000, 489*60*1000/10000, 571*60*1000/10000, 671*60*1000/10000, 759*60*1000/10000, 821*60*1000/10000, 890*60*1000/10000, 971*60*1000/10000, 1021*60*1000/10000, 1135*60*1000/10000, 1234*60*1000/10000, 1256*60*1000/10000, 1389*60*1000/10000, 1462*60*1000/10000, 1501*60*1000/10000]
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        jyezzqs.setOption(jyezzqs_option);
+
+
+
+        // 基于准备好的dom，初始化echarts实例
+        var ddlzzqs = echarts.init(document.getElementById('ddlzzqs'));
+
+        // 指定图表的配置项和数据
+        var ddlzzqs_option = {
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['订单量（单）', '交易额（万元）']
+            },
+            grid: {
+                left: '0%',
+                right: '0%',
+                bottom: '0%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['06-01', '06-02', '06-03', '06-04', '06-05', '06-06', '06-07', '06-08', '06-09', '06-10', '06-11', '06-12', '06-13', '06-14', '06-15', '06-16', '06-17', '06-18', '06-19', '06-20', '06-21', '06-22', '06-23', '06-24', '06-25', '06-26', '06-27', '06-28', '06-29', '06-20']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name: '订单量（单）',
+                    type: 'line',
+                    stack: '总量',
+                    symbol: 'none',
+                    label: {
+                        show: true,
+                        position: 'top'
+                    },
+                    areaStyle: {
+                        color: 'rgb(100, 149, 237)'
+                    },
+                    itemStyle: {
+                        color: 'rgb(100, 149, 237)'
+                    },
+                    data: [121, 167, 345, 365, 390, 456, 468, 470, 490, 561, 590, 621, 635, 667, 690, 730, 793, 891, 990, 1232, 1421, 1561, 1732, 1861, 1906, 2143, 2367, 2576, 2790, 2901]
+                },
+                {
+                    name: '交易额（万元）',
+                    type: 'line',
+                    stack: '总量',
+                    symbol: 'none',
+                    label: {
+                        show: true,
+                        position: 'top'
+                    },
+                    areaStyle: {
+                        color: 'rgb(124, 205, 124)'
+                    },
+                    itemStyle: {
+                        color: 'rgb(124, 205, 124)'
+                    },
+                    data: [121*20*1000/10000, 167*20*1000/10000, 345*20*1000/10000, 365*20*1000/10000, 390*20*1000/10000, 456*20*1000/10000, 468*20*1000/10000, 470*20*1000/10000, 490*20*1000/10000, 561*20*1000/10000, 590*20*1000/10000, 621*20*1000/10000, 635*20*1000/10000, 667*20*1000/10000, 690*20*1000/10000, 730*20*1000/10000, 793*20*1000/10000, 891*20*1000/10000, 990*20*1000/10000, 1232*20*1000/10000, 1421*20*1000/10000, 1561*20*1000/10000, 1732*20*1000/10000, 1861*20*1000/10000, 1906*20*1000/10000, 2143*20*1000/10000, 2367*20*1000/10000, 2576*20*1000/10000, 2790*20*1000/10000, 2901*20*1000/10000]
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        ddlzzqs.setOption(ddlzzqs_option);
+
+
+
+        // 基于准备好的dom，初始化echarts实例
+        var ljdpsl = echarts.init(document.getElementById('ljdpsl'));
+
+        // 指定图表的配置项和数据
+        var ljdpsl_option =  {
+            legend: {},
+            tooltip: {},
+            dataset: {
+                source: [
+                    ['product', '店铺数量（个）'],
+                    ['2017', 268],
+                    ['2018', 360],
+                    ['2019', 428],
+                    ['2020', 536]
+                ]
+            },
+            grid: {
+                left: '0%',
+                right: '0%',
+                bottom: '0%',
+                containLabel: true
+            },
+            xAxis: {type: 'category'},
+            yAxis: {},
+            series: [
+                {type: 'bar',
+                    label: {
+                        show: true,
+                        position: 'top'
+                    },
+                    itemStyle: {
+                        color: 'rgb(100, 149, 237)'
+                    }}
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        ljdpsl.setOption(ljdpsl_option);
+
+
+        // 基于准备好的dom，初始化echarts实例
+        var dpzzqs = echarts.init(document.getElementById('dpzzqs'));
+
+        // 指定图表的配置项和数据
+        var dpzzqs_option = {
+            title: {
+                text: ''
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['店铺数量']
+            },
+            grid: {
+                left: '0%',
+                right: '0%',
+                bottom: '0%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['2016', '2017', '2018', '2019', '2020', '2021']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name: '店铺数量',
+                    type: 'line',
+                    smooth: true,
+                    label: {
+                        show: true,
+                        position: 'top'
+                    },
+                    areaStyle: {},
+                    itemStyle: {
+                        color: 'rgb(100, 149, 237)'
+                    },
+                    data: [216, 268, 360, 428, 536, 623]
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        dpzzqs.setOption(dpzzqs_option);
+
+
+        table.render({
+            elem: '#dpxsphb'
+            ,cols: [[
+                {field:'mc', title:'店铺名称'}
+                ,{field:'sl', title:'销售量（吨）'}
+                ,{field:'je', title:'销售金额（元）'}
+            ]]
+            , data: [
+                {
+                    "mc": "禾希商贸有限公司",
+                    "sl": 45180,
+                    "je": 45180*30
+                },
+                {
+                    "mc": "陈仲恒水果专业合作社",
+                    "sl": 36823,
+                    "je": 36823*30
+                },
+                {
+                    "mc": "瑞吉商贸有限公司",
+                    "sl": 28492,
+                    "je": 28492*30
+                },
+                {
+                    "mc": "唯特工艺品厂",
+                    "sl": 49204,
+                    "je": 49204*30
+                }]
+        });
+
+        table.render({
+            elem: '#dpfltj'
+            ,cols: [[
+                {field:'mc', title:'市场'}
+                ,{field:'pz', title:'品种'}
+                ,{field:'sl', title:'交易量（吨）'}
+                ,{field:'je', title:'交易金额（元）'}
+            ]]
+            , data: [
+                {
+                    "mc": "禾希商贸有限公司",
+                    "pz": "东魁杨梅",
+                    "sl": 33434,
+                    "je": 33434*30
+                },
+                {
+                    "mc": "忆中梅酒业有限公司",
+                    "pz": "东魁杨梅",
+                    "sl": 76456,
+                    "je": 76456*30
+                },
+                {
+                    "mc": "瑞吉商贸有限公司",
+                    "pz": "荸荠杨梅",
+                    "sl": 23424,
+                    "je": 23424*30
+                },
+                {
+                    "mc": "唯特工艺品厂",
+                    "pz": "东魁杨梅",
+                    "sl": 34534,
+                    "je": 34534*30
+                }]
+        });
+
+
+
+
+        var dpdtfb = echarts.init(document.getElementById('dpdtfb'));
+        var imgUrl = "";
+
+        //地理位置信息
+        var geoCoordMap = {
+            "横溪镇": [120.48594270806781,28.743414705985856],
+            "白塔镇": [120.60735372821208,28.75685891745399],
+            "田市镇": [120.64105168313566,28.78134013790418],
+            "官路镇": [120.66882630135893,28.83474516406105],
+            "下各镇": [120.8619221910063,28.86446933207203],
+            "朱溪镇": [120.84454581837979,28.73162100141002],
+            '埠头镇': [120.53075674452094,28.758083341903593],
+            '上张乡': [120.73818518840582,28.67004110976343],
+            '安岭乡': [120.3595087228356,28.566189640307353],
+            "溪港乡": [120.40650267726907,28.576193611995183],
+            "湫山乡": [120.42757000757376,28.701002561007495],
+            '皤滩乡': [120.54780793055293,28.743809548137413],
+            '淡竹乡': [120.58210927728737,28.675844427379936],
+            '步路乡': [120.72308143888824,28.802875879486006],
+            '广度乡': [120.75471113520634,28.954058764904442],
+            '大战乡': [120.82440149698628,28.82511992472225],
+            '双庙乡': [120.85961624076296,28.79579202101374],
+            '东溪村': [120.774288,28.887994],
+            '赵岙村': [120.749992,28.823576],
+            '南峰街道': [120.749992,28.823576],
+            '清口园村': [120.726889,28.819819],
+            '安洲街道': [120.731557,28.866199]
+        };
+
+
+        var geoCoordData = [{
+            name: '广度乡',
+            value: "禾希商贸有限公司",
+            info: {
+                img: imgUrl
+            }
+        },
+            {
+                name: '白塔镇',
+                value: "白塔镇前王市场",
+                info: {
+                    img: imgUrl
+                }
+            },
+            {
+                name: '双庙乡',
+                value: "俊朗种植专业合作社",
+                info: {
+                    img: imgUrl
+                }
+            },
+            {
+                name: '溪港乡',
+                value: "凯瑞尔家居用品有限公司",
+                info: {
+                    img: imgUrl
+                }
+            },
+            {
+                name: '清口园村',
+                value: "忆中梅酒业有限公司",
+                info: {
+                    img: imgUrl
+                }
+            },
+            {
+                name: '埠头镇',
+                value: "瑞吉商贸有限公司",
+                info: {
+                    img: imgUrl
+                }
+            },
+            {
+                name: '安洲街道',
+                value: "唯特工艺品厂",
+                info: {
+                    img: imgUrl
+                }
+            }
+        ];
+        var convertData = function(data) {
+            var res = [];
+            for (var i = 0; i < data.length; i++) {
+                var geoCoord = geoCoordMap[data[i].name];
+                if (geoCoord) {
+                    res.push({
+                        name: data[i].name,
+                        value: geoCoord.concat(data[i].value),
+                        info: data[i].info || {}
+                    });
+                }
+            }
+            return res;
+        };
+        var dpdtfb_option = {
+            backgroundColor: '#020933',
+            title: {
+                text: '',
+                top: 5,
+                subtext: '',
+                sublink: '',
+                left: 'center',
+                textStyle: {
+                    color: '#ccc'
+                }
+            },
+            tooltip: {
+                trigger: 'item',
+                triggerOn: 'click',
+                showDelay: 0, //浮层显示的延迟
+                transitionDuration: 0.2, // 提示框浮层的移动动画过渡时间
+                enterable: true,
+                formatter: function(params) {
+                    console.log(params)
+
+                },
+                // position: [10, 10],
+                backgroundColor: "#fff"
+            },
+            visualMap: { //图例值控制
+                min: 0,
+                max: 100000,
+                calculable: true,
+                show: true,
+                color: ['#f44336', '#fc9700', '#ffde00', '#ffde00', '#00eaff'],
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            //地理坐标
+            geo: {
+                map: 'tjbh',
+                type: "map",
+                aspectScale: 0.75, //长宽比
+                zoom: 1.1,
+                roam: false,
+                itemStyle: {
+                    normal: {
+                        areaColor: '#013C62',
+                        shadowColor: '#182f68',
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 25,
+                    },
+                    emphasis: {
+                        areaColor: '#2AB8FF',
+                        borderWidth: 0,
+                        color: 'green',
+                        label: {
+                            show: false
+                        }
+                    }
+                }
+            },
+            series: [{
+                map: 'tjbh', //使用
+                type: 'map',
+                label: {
+                    normal: {
+                        show: true,
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    },
+                    emphasis: {
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    }
+                },
+
+                itemStyle: {
+                    normal: {
+                        borderColor: '#2ab8ff',
+                        borderWidth: 1.5,
+                        areaColor: '#12235c'
+                    },
+                    emphasis: {
+                        areaColor: '#2AB8FF',
+                        borderWidth: 0,
+                        color: 'green'
+                    }
+                },
+                zoom: 1.1,
+                roam: true,
+
+            },
+
+
+                //标记 图形 原点 scatter点 effectScatter涟漪特效
+                {
+
+                    type: 'scatter',
+                    coordinateSystem: 'geo',
+                    symbolSize: 5,
+                    label: {
+                        normal: {
+                            formatter: '{b}',
+                            position: 'right',
+                            show: true
+                        },
+                        emphasis: {
+                            show: true
+                        }
+                    },
+                    hoverAnimation: true,
+                    itemStyle: {
+                        normal: {
+                            color: '#fff'
+                        }
+                    },
+                    zlevel: 1,
+                    data: convertData(geoCoordData)
+                },
+                //标记图形 大头针
+                {
+                    type: 'scatter',
+                    coordinateSystem: 'geo',
+                    symbol: 'pin',
+                    symbolSize: [70, 70],
+                    label: {
+                        normal: {
+                            show: true,
+                            textStyle: {
+                                color: 'red',
+                                fontSize: 12,
+                            },
+                            formatter(value) {
+                                return value.data.value[2]
+                            }
+                        }
+                    },
+                    hoverAnimation: true,
+                    itemStyle: {
+                        normal: {
+                            color: '#D8BC37', //标志颜色
+                            // shadowBlur: 10,
+                            // shadowColor: '#333'
+                        }
+                    },
+                    zlevel: 1,
+                    data: convertData(geoCoordData)
+                }
+            ]
+        };
+
+        var getData = function() {
+            $.get('jylddt.json', function(geojson) {
+                echarts.registerMap('tjbh', geojson);
+                dpdtfb.setOption(dpdtfb_option);
+            })
+        }
+
+        getData()
+
+        dpdtfb.on('georoam', function(params) {
+            var option = dpdtfb.getOption(); //获得option对象
+            if (params.zoom != null && params.zoom != undefined) { //捕捉到缩放时
+                option.geo[0].zoom = option.series[0].zoom; //下层geo的缩放等级跟着上层的geo一起改变
+                option.geo[0].center = option.series[0].center; //下层的geo的中心位置随着上层geo一起改变
+            } else { //捕捉到拖曳时
+                option.geo[0].center = option.series[0].center; //下层的geo的中心位置随着上层geo一起改变
+            }
+            dpdtfb.dispatchAction({
+                type: 'restore'
+            })
+            dpdtfb.setOption(option); //设置option
+        });
+
+    });
+</script>
+</body>
+
+</html>

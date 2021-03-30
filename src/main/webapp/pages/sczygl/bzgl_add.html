@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>播种信息维护</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../public/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../public/css/font.css">
+	<link rel="stylesheet" href="../../public/css/weadmin.css">
+    <script src="../../public/layui/layui.js" charset="utf-8"></script>
+    <script src="../../public/js/pubinclude.js"></script>
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="bzgl_add.js?v=1.3"></script>
+</head>
+
+<body>
+
+<div style="background-color: white;padding: 20px;margin: 20px;margin-bottom: 0px;">
+    <form class="layui-form " action="">
+        <div class="layui-form-item">
+            <label class="layui-form-label">农户姓名</label>
+            <div class="layui-input-inline">
+                <input type="text"  id="gsid"  class="layui-input" value="张彩娟">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">地块</label>
+            <div class="layui-input-inline">
+                <select id="ZCQLX" name="zcqlx">
+	                <option value="坑口垟水磨山">坑口垟水磨山</option>
+	                <option value="坑口垟大坑里">坑口垟大坑里</option>
+	                <option value="坑口垟村">坑口垟村</option>
+	            </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">时间</label>
+            <div class="layui-input-inline">
+                <input type="text"  id="sj"  class="layui-input" >
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">种苗</label>
+            <div class="layui-input-inline">
+                <input type="text"  id="gsid"  class="layui-input" >
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">品牌</label>
+            <div class="layui-input-inline">
+                <input type="text"  id="gsid"  class="layui-input" >
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">供应商</label>
+            <div class="layui-input-inline">
+                <input type="text"  id="gsid"  class="layui-input" >
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">用量</label>
+            <div class="layui-input-inline">
+                <input type="text"  id="gsid"  class="layui-input" >
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">生产人员</label>
+            <div class="layui-input-inline">
+                <input type="text"  id="gsid"  class="layui-input" value="王金荣">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div style="margin-left: 50%;">
+                <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1" onclick="save()">保存</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+</body>
+</html>

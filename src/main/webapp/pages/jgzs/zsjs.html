@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>指数计算</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../../public/css/font.css"/>
+    <link rel="stylesheet" href="../../public/layui/css/layui.css">
+</head>
+<body>
+
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-form layui-card-header" style="padding-top: 10px;padding-bottom: 10px;">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">杨梅品种</label>
+                    <div class="layui-input-inline">
+                        <select name="pz">
+                            <option value="0">东魁杨梅</option>
+                            <option value="1">荸荠杨梅</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">算法模型</label>
+                    <div class="layui-input-inline">
+                        <select name="mx">
+                            <option value="0">自回归(AR)模型</option>
+                            <option value="1">移动平均(MA)模型</option>
+                            <option value="2">自回归移动平均(ARMA)模型</option>
+                            <option value="3">差分自回归移动平均模型(ARIMA)</option>
+                            <option value="4">季节性差分自回归移动平均模型(SARIMA)模型</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn layui-btn-normal" lay-submit lay-filter="LAY-app-contlist-search">
+                        <i class="layui-icon layui-icon-refresh"> 计算</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-card-body">
+            价格：<span style="color: red;size: 50px;font-size: 30px;" id="je">0.00</span>
+            <table class="layui-table" lay-skin="nob" lay-size="lg">
+                <thead>
+                <tr>
+                    <th>公式说明：</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        主要公式：
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        P1i为报告期所有抽选的杨梅(i=1,2,…,n)的价格,P0i为基期这些杨梅的价格，qi为权重。
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        所以，对于杨梅零售价格指数(RPI)、PPI的计算，采用基期的杨梅销售量(qi)作为权重。对于股票价格指数(stock price index)的计算，采用杨梅的发行量作为权重。
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        而对于人们所熟知的杨梅价格指数的计算，则其权重的取得复杂一点，它是根据居民家庭用于杨梅或杨梅占总支出比重计算的。权数资料来源于城市住户调查统计中的居民人均杨梅支出数据。
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="../../public/layui/layui.js"></script>
+<script>
+    layui.extend({
+        admin: '{/}../../public/js/admin'
+    });
+    layui.use(['table', 'jquery', 'form', 'admin'], function (table, $, form, admin) {
+        var je = [[22.35,21.21,26.07,23.26,28.12],[21.12,25.17,29.15,27.37,28.17]];
+        //监听搜索
+        form.on('submit(LAY-app-contlist-search)', function(data){
+            var index = layer.load(0, {shade: false});
+            setTimeout(function() {
+                layer.close(index);
+                $('#je').text(je[data.field.pz][data.field.mx]);
+            }, 1000);
+        });
+
+    });
+</script>
+</body>
+
+</html>

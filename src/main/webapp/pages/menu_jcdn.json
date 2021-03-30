@@ -1,0 +1,287 @@
+{
+	"status": 0,
+	"msg": "ok",
+	"data": [{
+				"id": 1,
+				"name": "数字驾驶舱",
+				"icon": "&#xe70b;",
+				"url": "",
+				"children": [{
+					"id": 11,
+					"name": "农户生产数据分析",
+					"icon": "&#xe70b;",
+					"url": "sjcj/ymszjsc/nhsjfx.html"
+				}, {
+					"id": 12,
+					"name": "供应站生产数据分析",
+					"icon": "&#xe70b;",
+					"url": "sjcj/ymszjsc/nzgyz.html"
+				}, {
+					"id": 13,
+					"name": "交易统计分析",
+					"icon": "&#xe70b;",
+					"url": "",
+					"children": [{
+						"id": 130,
+						"name": "交易统计",
+						"icon": "",
+						"url": "jyfx/jyfx.html"
+					}, {
+						"id": 131,
+						"name": "累计交易额",
+						"icon": "",
+						"url": "jyfx/ljjye.html"
+					}, {
+						"id": 132,
+						"name": "近1/7/30日交易额",
+						"icon": "",
+						"url": "jyfx/jye.html"
+					}, {
+						"id": 133,
+						"name": "交易额增长趋势",
+						"icon": "",
+						"url": "jyfx/jyezzqs.html"
+					}, {
+						"id": 134,
+						"name": "订单量增长趋势",
+						"icon": "",
+						"url": "jyfx/ddlzzqs.html"
+					}, {
+						"id": 135,
+						"name": "店铺销售排行榜",
+						"icon": "",
+						"url": "jyfx/dpxsphb.html"
+					}, {
+						"id": 136,
+						"name": "交易流动地图",
+						"icon": "",
+						"url": "jyfx/jylddt.html"
+					}, {
+						"id": 137,
+						"name": "交易公告板",
+						"icon": "",
+						"url": "jyfx/jyggb.html"
+					}, {
+						"id": 138,
+						"name": "累计店铺数量",
+						"icon": "",
+						"url": "jyfx/ljdpsl.html"
+					}, {
+						"id": 139,
+						"name": "店铺分类统计",
+						"icon": "",
+						"url": "jyfx/dpfltj.html"
+					}, {
+						"id": 139,
+						"name": "店铺增长趋势",
+						"icon": "",
+						"url": "jyfx/dpzzqs.html"
+					}, {
+						"id": 139,
+						"name": "店铺地图分布",
+						"icon": "",
+						"url": "jyfx/dpdtfb.html"
+					}]
+				}, {
+					"id": 14,
+					"name": "用户统计分析",
+					"icon": "&#xe70b;",
+					"url": "yhtjfx/yhtjfx.html"
+				}]
+			}, 
+					{"id": 2,
+					"name": "古树保护管理",
+					"icon": "&#xe70b;",
+					"url": "",
+					"children":[
+						
+						{
+							"id": 26,
+							"name": "古树信息维护",
+							"icon": "&#xe70b;",
+							"url": "",
+							"children": [{
+								"id": 261,
+								"name": "古树信息登记",
+								"url": "gsmm/gsmmdj.html"
+							},
+								{
+									"id": 262,
+									"name": "古树信息查询",
+									"url": "gsmm/gsmmlist.html"
+								}]
+						},
+						{
+							"id": 27,
+							"name": "古树养护管理",
+							"icon": "&#xe70b;",
+							"url": "",
+							"children": [{
+								"id": 271,
+								"name": "巡检登记",
+								"url": "gsmmcx/gsmmxc.html"
+							},
+								{
+									"id": 272,
+									"name": "生长记录",
+									"url": "gsmmcx/gsmmszjl.html"
+								},
+								{
+									"id": 273,
+									"name": "病虫害记录",
+									"url": "gsmmcx/gsmmbchjl.html"
+								},
+								{
+									"id": 274,
+									"name": "向专家提问",
+									"url": "gsmmcx/gsmmzjtw.html"
+								},
+								{
+									"id": 275,
+									"name": "古树养护查询",
+									"url": "gsmmcx/gsmmyh_cx.html"
+								}]
+						},
+						{
+							"id": 28,
+							"name": "人员管理模块",
+							"icon": "&#xe70b;",
+							"url": "",
+							"children": [{
+								"id": 281,
+								"name": "养护人员登记",
+								"url": "rygl/yhrydj.html"
+							},
+								{
+									"id": 282,
+									"name": "出勤记录",
+									"url": "rygl/yhrycqjl.html"
+								},
+								{
+									"id": 283,
+									"name": "养护记录",
+									"url": "rygl/yhryyhjl.html"
+								},
+								{
+									"id": 284,
+									"name": "人员管理查询",
+									"url": "rygl/rygl_list.html"
+								}]
+						},
+						{
+							"id": 29,
+							"name": "巡查管理模块",
+							"icon": "&#xe70b;",
+							"url": "",
+							"children": [{
+								"id": 291,
+								"name": "巡查登记",
+								"url": "gsmmcx/gsmmxj.html"
+							},
+								{
+									"id": 292,
+									"name": "巡查记录查询",
+									"url": "gsmmcx/gsmmxj_list.html"
+								}]
+						},
+						{
+								"id": 25,
+								"name": "数据统计展示模块",
+								"icon": "&#xe70b;",
+								"url": "",
+								"children": [{
+									"id": 251,
+									"name": "地图标记古树位置",
+									"url": "old_tree/positionQuery.html"
+								},
+								{
+									"id": 252,
+									"name": "古树统计分析",
+									"url": "old_tree/line.html"
+								},
+									{
+										"id": 253,
+										"name": "古树生长信息查看",
+										"url": "sjtjzs/gsszxx_cx.html"
+									},
+									{
+										"id": 254,
+										"name": "古树病虫害信息查看",
+										"url": "sjtjzs/gsbchxx_cx.html"
+									},
+									{
+										"id": 255,
+										"name": "古树养护信息查看",
+										"url": "sjtjzs/gsyhxx_cx.html"
+									}]
+							}
+					]
+				
+			}, {
+				"id": 3,
+				"name": "杨梅大数据平台",
+				"icon": "&#xe70b;",
+				"children": [{
+					"id": 31,
+					"name": "数据采集",
+					"icon": "&#xe70b;",
+					"children": [{
+						"id": 311,
+						"name": "采集任务配置监控",
+						"icon": "&#xe70b;",
+						"url": "sjcj/cjrwpzjk/cjrwjk.html"
+					},{
+						"id": 312,
+						"name": "数据库数据源维护",
+						"icon": "&#xe70b;",
+						"url": "sjcj/sjjh/sjksjywh.html"
+					},{
+						"id": 313,
+						"name": "文件数据源维护",
+						"icon": "&#xe70b;",
+						"url": "sjcj/sjjh/wjsjywh.html"
+					},{
+						"id": 314,
+						"name": "接口数据源维护",
+						"icon": "&#xe70b;",
+						"url": "sjcj/sjjh/jksjywh.html"
+					},{
+						"id": 315,
+						"name": "字段转换过滤",
+						"icon": "&#xe70b;",
+						"url": "sjcj/zdzhgl/zdzhgl.html"
+					},{
+						"id": 316,
+						"name": "数据交换服务配置",
+						"icon": "&#xe70b;",
+						"url": "sjcj/sjjh/sjjhfwpz.html"
+					},{
+						"id": 317,
+						"name": "实时监控",
+						"icon": "&#xe70b;",
+						"url": "sjcj/sjjh/ssjk.html"
+					},{
+						"id": 318,
+						"name": "日志管理",
+						"icon": "&#xe70b;",
+						"url": "sjcj/sjjh/rzgl.html"
+					},{
+						"id": 319,
+						"name": "数据网上填报",
+						"icon": "&#xe70b;",
+						"url": "sjcj/sjwstb/sjwstb.html"
+					},{
+						"id": 320,
+						"name": "数据导入加载",
+						"icon": "&#xe70b;",
+						"url": "sjcj/sjdrjz/sjdrjz.html"
+					},{
+						"id": 321,
+						"name": "数据库对接",
+						"icon": "&#xe70b;",
+						"url": "sjcj/sjkdj/sjkdj.html"
+					}]
+				}]
+			}
+	]
+}

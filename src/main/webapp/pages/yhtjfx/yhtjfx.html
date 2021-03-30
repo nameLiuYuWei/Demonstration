@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>用户统计分析</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../public/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../public/css/font.css">
+	<link rel="stylesheet" href="../../public/css/weadmin.css">
+    <script src="../../public/layui/layui.js" charset="utf-8"></script>
+    <script src="../../public/echarts/echarts.js" charset="utf-8"></script>
+    <script src="../../public/js/pubinclude.js"></script>
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/pub.js"></script>
+    <script src="../../../public/echarts/echarts.js" charset="utf-8"></script>
+    <script src="yhtjfx.js?v=1.3"></script>
+</head>
+<body>
+
+<div style="background-color: white;padding: 20px;">
+    <h3 style="margin-bottom: 15px"><b>杨梅种植大户统计分析</b></h3>
+    <form class="layui-form " action="">
+        <div class="layui-form-item">
+        	<div class="layui-inline">
+	            <label class="layui-form-label">年度</label>
+	            <div class="layui-input-inline">
+		            <input type="text" class="layui-input" id="sjq" >
+	            </div>
+            </div>
+            <div class="layui-inline">
+	            <label class="layui-form-label">姓名</label>
+	            <div class="layui-input-inline">
+	                <input type="text"   value=""   class="layui-input">
+	            </div>
+            </div>
+            <div class="layui-inline">
+	            <label class="layui-form-label">身份证号码</label>
+	            <div class="layui-input-inline">
+	                <input type="text"   class="layui-input">
+	            </div>
+            </div>
+            <div class="layui-btn-group layui-inline">
+                 <button type="button" class="layui-btn" id='query'>
+                     <i class="layui-icon layui-icon-search"></i> &nbsp;查询
+                 </button>
+         	</div>
+         </div>
+         <table class="layui-table" id="ywbd"  lay-filter="ywbd"></table>
+         <div class="weadmin-body">
+            <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+            <div id="main" style="width: 100%;height:400px;"></div>
+            <div id="main2" style="width: 100%;height:400px;"></div>
+        </div>
+    </form>
+</div>
+
+
+	<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        option = {
+            title: {
+            text: '用户年产量(公斤)',
+            subtext: '',
+            // x 设置水平安放位置，默认左对齐，可选值：'center' ¦ 'left' ¦ 'right' ¦ {number}（x坐标，单位px）
+            x: 'center',
+            // y 设置垂直安放位置，默认全图顶端，可选值：'top' ¦ 'bottom' ¦ 'center' ¦ {number}（y坐标，单位px）
+            y: 'top',
+            // itemGap设置主副标题纵向间隔，单位px，默认为10，
+            itemGap: 30,
+            backgroundColor: '#EEE',
+            // 主标题文本样式设置
+            textStyle: {
+              fontSize: 26,
+              fontWeight: 'bolder',
+              color: '#000080'
+            },
+            // 副标题文本样式设置
+            subtextStyle: {
+              fontSize: 18,
+              color: '#8B2323'
+            }
+       },
+       /* legend: {
+            // orient 设置布局方式，默认水平布局，可选值：'horizontal'（水平） ¦ 'vertical'（垂直）
+            orient: 'vertical',
+            // x 设置水平安放位置，默认全图居中，可选值：'center' ¦ 'left' ¦ 'right' ¦ {number}（x坐标，单位px）
+            x: 'left',
+            // y 设置垂直安放位置，默认全图顶端，可选值：'top' ¦ 'bottom' ¦ 'center' ¦ {number}（y坐标，单位px）
+            y: 'center',
+            itemWidth: 24,   // 设置图例图形的宽
+            itemHeight: 18,  // 设置图例图形的高
+            textStyle: {
+              color: '#666'  // 图例文字颜色
+            },
+            // itemGap设置各个item之间的间隔，单位px，默认为10，横向布局时为水平间隔，纵向布局时为纵向间隔
+            itemGap: 30,
+            backgroundColor: '#eee',  // 设置整个图例区域背景颜色
+            data:['吴宝福','陈娅萍','吴志美','朱焕彩','胡凤台','其他人员']
+          }, */
+      series: [
+            {
+              name: '',
+              type: 'pie',
+              radius: '50%',  // 设置饼状图大小，100%时，最大直径=整个图形的min(宽，高)
+              //radius: ['30%', '60%'],  // 设置环形饼状图， 第一个百分数设置内圈大小，第二个百分数设置外圈大小
+              center: ['50%', '50%'],  // 设置饼状图位置，第一个百分数调水平位置，第二个百分数调垂直位置
+              data: [
+                  {value:70000, name:'吴宝福'},
+                  {value:22500, name:'陈娅萍'},
+                  {value:20000, name:'吴志美'},
+                  {value:20000, name:'朱焕彩'},
+                  {value:50000, name:'胡凤台'},
+                  {value:40000, name:'沈春芳'},
+                  {value:20000, name:'胡锦水'},
+                  {value:30000, name:'吴伟平'},
+                  {value:30000, name:'王国华'},
+                  {value:50000, name:'赵将根'},
+                  {value:90000, name:'其他人员'}
+              ],
+              // itemStyle 设置饼状图扇形区域样式
+              
+
+              
+              itemStyle: {
+                // emphasis：英文意思是 强调;着重;（轮廓、图形等的）鲜明;突出，重读
+                // emphasis：设置鼠标放到哪一块扇形上面的时候，扇形样式、阴影
+                emphasis: {
+                  shadowBlur: 10,
+                  shadowOffsetX: 0,
+                  shadowColor: 'rgba(30, 144, 255，0.5)'
+                },
+                normal:{ 
+                   label:{ 
+                      show: true, 
+                      formatter: '{b} : {c} ({d}%)' 
+                   }, 
+                      labelLine :{show:true} 
+                }
+              }
+              
+            }
+          ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    
+    
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var map4_data1=[50000, 55000, 56000, 60000, 70000];
+		var map4_data2=[22500, 12500, 20000, 15500, 22500];
+		var map4_data3=[10000, 13000, 15000, 19000, 20000];
+		var map4_data4=[14000, 19000, 17000, 14000, 20000];
+		var map4_data5=[45000, 49000, 39000, 40000, 50000];
+		var map4_data6=[41000, 42000, 44000, 43000, 40000];
+		var map4_data7=[21000, 22000, 17000, 18000, 20000];
+		var map4_data8=[27000, 29000, 27000, 28000, 30000];
+		var map4_data9=[31000, 32000, 33000, 29000, 30000];
+		var map4_data10=[49000, 48000, 51000, 52000, 50000];
+		var map4_data11=[88000, 91000, 87000, 89000, 90000];
+
+        // 基于准备好的dom，初始化echarts实例
+        var myChart2 = echarts.init(document.getElementById('main2'));
+
+        // 指定图表的配置项和数据
+        option2 = {
+                 title : {
+	                text: '近5年产量(公斤)',
+	                subtext: ''
+	             },
+                 color: ['#ffdf25', '#36a9ce', '#d0e17d', '#CC0066', '#009999', '#FFCC33','#fadf25', 
+                         '#34a7ce', '#d0f16a', '#AA0066', '#000099', '#FF1133', '#AFAC44'],
+                 tooltip: {
+                     trigger: 'axis',
+                     axisPointer: {
+                         type: 'shadow'
+                     }
+                 },
+                 grid: {
+                     left: '0%',
+                     right: '0%',
+                     bottom: '10%',
+                     top:'10%',
+                     containLabel: true
+                 },
+                 calculable: true,
+                 xAxis: [
+                     {
+                         type: 'category',
+                         axisTick: {show: false},
+                         data: ['2016','2017','2018','2019','2020']
+                     }
+                 ],
+                 yAxis: [
+                     {
+                         type: 'value'
+                     }
+                 ],
+                 series: [
+                     {
+                         name: '吴宝福',
+                         type: 'bar',
+                         barGap: 0,
+                         data: map4_data1
+                     },
+                     {
+                         name: '陈娅萍',
+                         type: 'bar',
+                         data: map4_data2
+                     },
+                     {
+                         name: '吴志美',
+                         type: 'bar',
+                         data: map4_data3
+                     },
+                     {
+                         name: '朱焕彩',
+                         type: 'bar',
+                         barGap: 0,
+                         data: map4_data4
+                     },
+                     {
+                         name: '胡凤台',
+                         type: 'bar',
+                         data: map4_data5
+                     },
+                     {
+                         name: '沈春芳',
+                         type: 'bar',
+                         barGap: 0,
+                         data: map4_data6
+                     },
+                     {
+                         name: '胡锦水',
+                         type: 'bar',
+                         data: map4_data7
+                     },
+                     {
+                         name: '吴伟平',
+                         type: 'bar',
+                         data: map4_data8
+                     },
+                     {
+                         name: '王国华',
+                         type: 'bar',
+                         barGap: 0,
+                         data: map4_data9
+                     },
+                     {
+                         name: '赵将根',
+                         type: 'bar',
+                         data: map4_data10
+                     },
+                     {
+                         name: '其他人员',
+                         type: 'bar',
+                         data: map4_data11
+                     }
+                 ]
+             };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart2.setOption(option2);
+    </script>
+
+</body>
+
+</html>

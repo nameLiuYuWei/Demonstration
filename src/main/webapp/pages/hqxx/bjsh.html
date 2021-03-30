@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>报价审核</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../../public/css/font.css"/>
+    <link rel="stylesheet" href="../../public/layui/css/layui.css">
+</head>
+<body>
+
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-form layui-card-header" style="padding-top: 10px;padding-bottom: 10px;">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">报价日期</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input" id="test6" placeholder=" - ">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">报价类型</label>
+                    <div class="layui-input-inline">
+                        <select name="label">
+                            <option value="">请选择</option>
+                            <option value="0">买入</option>
+                            <option value="1">卖出</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-inline">
+                        <select name="label">
+                            <option value="">请选择</option>
+                            <option value="0">已审核</option>
+                            <option value="1">未审核</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn layuiadmin-btn-list" lay-submit lay-filter="LAY-app-contlist-search">
+                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-card-body">
+
+            <table class="layui-hide" id="dataTable" lay-filter="dataTable"></table>
+            <script type="text/html" id="czBar">
+                <a class="layui-btn layui-btn-xs" lay-event="sh">审核</a>
+            </script>
+        </div>
+    </div>
+</div>
+
+<script src="../../public/layui/layui.js"></script>
+<script>
+    layui.extend({
+        admin: '{/}../../public/js/admin'
+    });
+    layui.use(['table', 'jquery', 'form', 'admin', 'laydate'], function (table, $, form, admin, laydate) {
+        laydate.render({
+            elem: '#test6'
+            ,range: true
+        });
+
+        //监听搜索
+        form.on('submit(LAY-app-contlist-search)', function(data){
+
+            //执行重载
+            table.reload('dataTable', {
+                where: data.field
+            });
+        });
+
+        table.render({
+            elem: '#dataTable'
+            ,url:'bjsh.json'
+            ,cols: [[
+                {field:'bjr', title:'报价人'}
+                ,{field:'bjsj', title:'报价时间'}
+                ,{field:'sl', title:'数量'}
+                ,{field:'je', title:'金额'}
+                ,{field:'zt', title:'状态'}
+                ,{fixed: 'right', title:'操作', toolbar: '#czBar'}
+            ]]
+            ,page: true
+        });
+
+        table.on('tool(dataTable)', function(obj){
+            var data = obj.data;
+            $("input[name='bjr']").val(data.bjr);
+            $("input[name='bjsj']").val(data.bjsj);
+            $("input[name='sl']").val(data.sl);
+            $("input[name='je']").val(data.je);
+            $("input[name='zt']").val('同意');
+
+            if(obj.event === 'sh'){
+                layer.open({
+                    type: 1
+                    ,title: '审核'
+                    ,content: $('#bjshDiv')
+                    ,area: ['500px', '500px']
+                    ,btn: ['同意', '不同意', '取消']
+                    ,yes: function(index, layero){
+                        layer.msg('审核成功');
+                        obj.update({
+                            zt: '已审核'
+                        });
+                        layer.close(index);
+                    }
+                    ,btn2: function(index, layero){
+                        layer.msg('审核成功');
+                        obj.update({
+                            zt: '已审核'
+                        });
+                        layer.close(index);
+                    }
+                });
+            }
+        });
+    });
+</script>
+</body>
+
+<div class="layui-form" lay-filter="layuiadmin-app-form-list" id="bjshDiv"
+     style="padding: 20px 30px 0 0; display: none;">
+    <div class="layui-form-item">
+        <label class="layui-form-label">报价人</label>
+        <div class="layui-input-inline">
+            <input type="text" name="bjr" lay-verify="required" placeholder="请输入报价人" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">报价时间</label>
+        <div class="layui-input-inline">
+            <input type="text" name="bjsj" lay-verify="required" placeholder="请输入报价时间" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">数量</label>
+        <div class="layui-input-inline">
+            <input type="text" name="sl" lay-verify="required" placeholder="请输入数量" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">金额</label>
+        <div class="layui-input-inline">
+            <input type="text" name="je" lay-verify="required" placeholder="请输入金额" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">状态</label>
+        <div class="layui-input-inline">
+            <input type="text" name="zt" lay-verify="required" placeholder="请输入状态" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">审核人</label>
+        <div class="layui-input-inline">
+            <input type="text" name="shr" lay-verify="required" placeholder="请输入审核人" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">不同意原因</label>
+        <div class="layui-input-inline">
+            <input type="text" name="btyyy" lay-verify="required" placeholder="请输入不同意原因" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">审核日期</label>
+        <div class="layui-input-inline">
+            <input type="text" name="shrq" lay-verify="required" placeholder="请输入审核日期" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>管理员登录-WeAdmin Frame型后台管理系统-WeAdmin 1.0</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../public/css/font.css">
+    <link rel="stylesheet" href="../public/layui/css/layui.css">
+    <link rel="stylesheet" href="login.css?v=2021031501">
+    <script src="../public/layui/layui.js" charset="utf-8"></script>
+    <script src="../public/js/jquery.min.js"></script>
+    <script src="./login.js"></script>
+</head>
+
+<body>
+
+    <div class="header">
+        <img class="title" src="../public/images/login/title.png" alt="">
+
+        <img class="login-btn" src="../public/images/login/loginIcon.png" alt="">
+    </div>
+
+    <div class="func-list">
+        <div class="func-list-item">
+            <img id="jcdn" src="../public/images/login/func1.png" alt="">
+        </div>
+        <div class="func-list-item">
+            <img id="gyl" src="../public/images/login/func2.png" alt="">
+        </div>
+        <div class="func-list-item">
+            <img id="cyfw" src="../public/images/login/func3.png" alt="">
+        </div>
+    </div>
+
+    <div class="login layui-hide" >
+        <form method="post" class="layui-form" >
+            <div>
+                <img src="" alt="">
+            </div>
+            <div class="login-item">
+                <img src="../public/images/login/icon1.png" alt="">
+                <input name="username" placeholder="输入用户名" type="text" lay-verify="required" class="layui-input">
+            </div>
+            <div class="login-item">
+                <img src="../public/images/login/icon2.png" alt="">
+                <input name="password" lay-verify="required" placeholder="密码" type="password" class="layui-input">
+            </div>
+            <div class="login-item">
+                <img src="../public/images/login/icon3.png" alt="">
+                <input name="yzm" placeholder="验证码" type="text" lay-verify="required" class="layui-input">
+                <img id="yzmImg" src="../public/images/login/kaptcha.jpg" alt="">
+            </div>
+            <div style="padding: 20px 0px;text-align: left;">
+                <a href="#">忘记密码</a>
+            </div>
+            <!-- <div class="layui-btn-container">
+                <input class="loginin" value="登录" lay-submit lay-filter="login" style="width:48%;" type="button">
+                <input class="loginin" value="注册" lay-submit lay-filter="" style="width:48%;" type="button">
+                <img src="../public/images/login/dl.png" alt="">
+                <img src="../public/images/login/zc.png" alt="">
+            </div> -->
+            
+            
+            <div class="dlzc-list">
+		        <div class="dlzc-list-item">
+		            <img src="../public/images/login/dl.png" alt="">
+		        </div>
+		       <div class="dlzc-list-item">
+		            <img src="../public/images/login/zc.png" alt="">
+		         </div>
+		    </div> 
+		    
+		
+            
+            
+        </form>
+    </div>
+
+    <!-- 底部结束 -->
+</body>
+
+</html>

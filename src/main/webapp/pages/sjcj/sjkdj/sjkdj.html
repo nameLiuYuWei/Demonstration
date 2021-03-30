@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>数据库对接</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../../public/layui/css/layui.css"  media="all">
+    <script src="../../../public/layui/layui.js" charset="utf-8"></script>
+	<script src="../../../public/js/jquery.min.js"></script>
+	<script src="../../../public/js/pub.js"></script>
+	<script src="../../../public/echarts/echarts.js" charset="utf-8"></script>
+  <script src="sjkdj.js" charset="utf-8" defer=true></script>
+</head>
+<body>
+
+
+<div style="background-color: white;padding: 20px;">
+	<h3 style="margin-bottom: 15px"><b>数据库对接</b></h3>
+   <form class="layui-form" action="" lay-filter="cxform">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+            	<label class="layui-form-label">数据库类型</label>
+                <div class="layui-input-inline">
+                    <select name="interest" lay-filter="aihao" id="superviseDept1" >
+		                <option value="0">Oracle</option>
+		                <option value="1">Mysql</option>
+		                <option value="2">SQL Serve</option>
+		                <option value="3">DB2</option>
+		                <option value="4">Sybase</option>
+		            </select>
+                </div>
+            </div>
+
+            <div class="layui-btn-group layui-inline">
+                <button type="button" class="layui-btn" id='query'>
+                    <i class="layui-icon layui-icon-search"></i> &nbsp;查询
+                </button>
+            </div>
+            <div class="layui-btn-group layui-inline">
+                <button type="button" class="layui-btn" id='add'>
+                    <i class="layui-icon layui-icon-search"></i> &nbsp;新增
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<div>
+	<div  style="background-color: white;padding-left:20px;width: 90%;float: left;margin-right: 10px;">
+	    <table id="retTable" class="layui-form" lay-filter="KnowledgeTable"></table>
+	</div>
+
+
+</div>
+
+ 
+
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>纳税人结构</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../../public/layui/css/layui.css"  media="all">
+    <script src="../../../public/layui/layui.js" charset="utf-8"></script>
+	<script src="../../../public/js/jquery.min.js"></script>
+	<script src="../../../public/js/pub.js"></script>
+	<script src="../../../public/echarts/echarts.js" charset="utf-8"></script>
+  <script src="nhsjfx.js" charset="utf-8" defer=true></script>
+</head>
+<body>
+
+
+<div style="background-color: white;padding: 20px; ">
+	<h3 style="margin-bottom: 15px"><b>农户生产数据分析</b></h3>
+   <form class="layui-form" action="" lay-filter="cxform">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+            	<label class="layui-form-label">农资名称</label>
+                <div class="layui-input-inline">
+                    <select name="interest" lay-filter="aihao" id="superviseDept1" >
+		                <option value="">请选择</option>
+		                <option value="0">化肥</option>
+		                <option value="1">农药</option>
+		            </select>
+                </div>
+            </div>
+             <div class="layui-inline">
+             	<label class="layui-form-label">购买时间起</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input form-control" id="cxrqq" name="cxrqq" placeholder="查询日期起" /> 
+	  		
+                </div>
+            </div>
+            <div class="layui-inline">
+            	<label class="layui-form-label">购买时间止</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input form-control" id="cxrqz" name="cxrqz" placeholder="查询日期止" /> 
+	  		
+                </div>
+            </div>
+            <div class="layui-btn-group layui-inline">
+                    <button type="button" class="layui-btn" id='query'>
+                        <i class="layui-icon layui-icon-search"></i> &nbsp;查询
+                    </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div>
+	<div  style="background-color: white;padding-left:20px;width: 90%;float: left;margin-right: 10px;">
+		<p style="color:red;">温馨提示：平均每亩使用  > 正常每亩使用量，红色预警！</p>
+	    <table id="retTable" class="layui-form" lay-filter="KnowledgeTable"></table>
+	</div>
+
+
+</div>
+
+ 
+
+
+</body>
+</html>

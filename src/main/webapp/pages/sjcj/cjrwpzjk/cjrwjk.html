@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>纳税人结构</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../../public/layui/css/layui.css"  media="all">
+    <script src="../../../public/layui/layui.js" charset="utf-8"></script>
+	<script src="../../../public/js/jquery.min.js"></script>
+	<script src="../../../public/js/pub.js"></script>
+	<script src="../../../public/echarts/echarts.js" charset="utf-8"></script>
+  <script src="cjrwjk.js" charset="utf-8" defer=true></script>
+</head>
+<body>
+
+
+<div style="background-color: white;padding: 20px;">
+	<h3 style="margin-bottom: 15px"><b>采集任务监控</b></h3>
+   <form class="layui-form" action="" lay-filter="cxform">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+            	<label class="layui-form-label">任务名称</label>
+                <div class="layui-input-inline">
+                    <select name="interest" lay-filter="aihao" id="superviseDept1" >
+		                <option value="">全部</option>
+		                <option value="0">病虫情测报仪数据采集</option>
+		                <option value="1">病虫害光谱数据采集</option>
+		                <option value="2">无人机拍摄数据采集</option>
+		                <option value="3">施肥数据采集</option>
+		                <option value="4">打药数据采集</option>
+		                <option value="5">杨梅古树巡检数据采集</option>
+		                <option value="6">杨梅古树养护数据采集</option>
+		                <option value="7">杨梅价格行情数据采集</option>
+		            </select>
+                </div>
+            </div>
+             <div class="layui-inline">
+             	<label class="layui-form-label">执行时间起</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input form-control" id="cxrqq" name="cxrqq" placeholder="查询日期起" /> 
+	  		
+                </div>
+            </div>
+            <div class="layui-inline">
+            	<label class="layui-form-label">执行时间止</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input form-control" id="cxrqz" name="cxrqz" placeholder="查询日期止" /> 
+	  		
+                </div>
+            </div>
+            
+        </div>
+        
+        	<div class="layui-btn-group layui-inline">
+                    <button type="button" class="layui-btn" id='query'>
+                        <i class="layui-icon layui-icon-search"></i> &nbsp;查询
+                    </button>
+            </div>
+            <div class="layui-btn-group layui-inline">
+                    <button type="button" class="layui-btn" id='add'>
+                        <i class="layui-icon layui-icon-search"></i> &nbsp;新增
+                    </button>
+            </div>
+        
+        
+    </form>
+</div>
+
+<div>
+	<div  style="background-color: white;padding-left:20px;width: 60%;float: left;margin-right: 10px;">
+	    <table id="retTable" class="layui-form" lay-filter="KnowledgeTable"></table>
+	</div>
+	<div  style="background-color: white;width: 35%;float: left;">
+	    <h5 style="margin-bottom: 15px"><b>图表展现</b></h5>
+	    <div id="chartdiv" style="height: 500px;"></div>
+	</div>
+
+</div>
+
+ 
+
+
+</body>
+</html>

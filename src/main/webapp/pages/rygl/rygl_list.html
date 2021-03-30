@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>养护查询列表</title>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../public/layui/css/layui.css" media="all">
+    <script src="../../public/layui/layui.js" charset="utf-8"></script>
+    <script src="../../public/echarts/echarts.js" charset="utf-8"></script>
+    <script src="../../public/js/pubinclude.js"></script>
+    <script src="../../public/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/css.css">
+    <script type="text/javascript" src="rygl_list.js?v=1.0.1"></script>
+</head>
+<body style="padding-left: 10px;padding-right: 10px;">
+<form class="layui-form "  style="background-color: #F2F2F2;overflow:hidden;">
+    <div class="layui-form-item" style="margin-left: 30px;margin-top: 20px;">
+        <div class="layui-inline">
+            <label class="layui-form-label">登记日期起</label>
+            <div class="layui-input-inline">
+                <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">登记日期止</label>
+            <div class="layui-input-inline">
+                <input type="text" name="date" id="date1" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <button type="button" class="layui-btn"  onclick="cx()" style="margin-left: 10px;">查 询</button>
+    </div>
+    <table class="layui-hide" id="test" lay-filter="test" ></table>
+</form>
+
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button type="button" class="layui-btn" onclick="xgry()">修改人员信息</button>
+        <!--<button type="button" class="layui-btn" onclick="addry()">新增人员信息</button>
+
+        <button type="button" class="layui-btn" onclick="addcq()">新增出勤信息</button>
+        <button type="button" class="layui-btn" onclick="addyh()">新增养护信息</button>-->
+    </div>
+</script>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="xq">详情</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">出勤记录</a>
+    <a class="layui-btn layui-btn-xs" lay-event="del">养护记录</a>
+</script>
+
+</body>
+</html>

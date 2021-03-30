@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html style="background-color: #f0f2f5">
+<head>
+    <meta charset="utf-8">
+    <title>杨梅古树二维码</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../public/layui/css/layui.css" media="all">
+    <script src="../../public/layui/layui.js" charset="utf-8"></script>
+    <script src="../../public/echarts/echarts.js" charset="utf-8"></script>
+    <script src="gsmmewm.js?v=" +new Date().getTime() charset="utf-8"></script>
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/qrcode.js"></script>
+    <script src="../../public/js/jquery.printarea.js"></script>
+</head>
+<style type="text/css">
+    .layui-form-label{
+        width:110px;
+    }
+    .layui-input-block{
+        margin-left: 150px;
+    }
+    /*.layui-input{
+        border-color: #999;
+    }
+    .layui-form-label{
+        color: white;
+        background-color:#009688;
+    }*/
+</style>
+
+<body>
+
+<div style="background-color: white;">
+    <form class="layui-form " action="">
+        <div>
+            <div style="padding: 30px; line-height: 22px; background-color: #a2a2a2; color: #fff; "><div id="qrcode" style="width: 200px;margin: 0px auto;"></div></div>
+        </div>
+        <div style="margin-top: 15px;">
+            <div style="height: 50px;width: 65px;margin: 0px auto;">
+                <button type="submit" class="layui-btn layui-btn-sm" id="testbc" lay-submit="" lay-filter="demo1" style="padding: 0 20px" onclick="dy()">打印</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+</body>
+</html>
